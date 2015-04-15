@@ -11,3 +11,5 @@ C:\.vstudio\PasGen\PasGen\obj\Debug\PasGen.Properties.Resources.resources
 C:\.vstudio\PasGen\PasGen\obj\Debug\PasGen.csproj.GenerateResource.Cache
 C:\.vstudio\PasGen\PasGen\obj\Debug\PasGen.exe
 C:\.vstudio\PasGen\PasGen\obj\Debug\PasGen.pdb
+C:\.vstudio\PasGen\PasGen\bin\Debug\PasswordGenerator.dll
+C:\.vstudio\PasGen\PasGen\bin\Debug\PasswordGenerator.pdb

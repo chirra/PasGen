@@ -12,6 +12,7 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using PasswordGenerator;
 
 namespace PasGen
 {
@@ -25,9 +26,11 @@ namespace PasGen
             InitializeComponent();
         }
 
-        private void Button_Click(object sender, RoutedEventArgs e)
+        private void ButtonGenerate_Click(object sender, RoutedEventArgs e)
         {
-            PasswordGenerator passwordGenerator = new PasswordGenerator();
+            PasswordConditions passwordConditions = new PasswordConditions(5, 5, 5, 5);
+            Password password = new Password(8,passwordConditions,true);
+            ButtonCopyToClipboard01.Content = password.GetPassword();
         }
     }
 }

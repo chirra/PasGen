@@ -10,7 +10,8 @@ namespace PasswordGenerator
     {
         private bool pronounceable;
         private PasswordConditions passwordConditions;
-        private int quantities;
+        private int charactersAmount;
+        //private string password = "";
 /*
         public string Password
         {
@@ -20,12 +21,73 @@ namespace PasswordGenerator
 
         public string GetPassword()
         {
-            return "OK";
+            //Добавить сюда предварительные условия для маст хев символов
+            CharactersType currentCharacterType = CharactersType.Vovels;
+            string password = "";
+
+            for (int i = 0; i < charactersAmount; i++)
+            {
+                char simbol = GetNextSimbol(currentCharacterType);
+                password += simbol;
+            }
+            return password;
         }
 
-        public Password(int quantities, PasswordConditions passwordConditions, bool pronounceable = true)
+
+        Random random = new Random();
+        private char GetNextSimbol(CharactersType currentCharacterType)
         {
-            this.quantities = quantities;
+            
+            double randomCube = random.NextDouble();
+            double[] probabilityVector = GetProbabilityVector(currentCharacterType);
+            double sumPVectorElement = 0;
+            CharactersType ct = 0;
+            char result = ' ';
+
+            foreach (double p in probabilityVector)
+            {
+                sumPVectorElement += p;
+                if (randomCube > sumPVectorElement)
+                {
+                    ct++;
+                    //continue;
+
+                }
+                else
+                {
+                    result = GetCharacterByType(ct);
+                    break;
+
+                }
+                
+            }
+
+            return result;
+
+        }
+
+        Characters characters = new Characters();
+        private char GetCharacterByType(CharactersType ct)
+        {
+            if (ct == CharactersType.Vovels) return characters.GetRandomVowel();
+            else return characters.GetRandomConsonant();
+        }
+
+        private double[] GetProbabilityVector(CharactersType currentCharacterType)
+        {
+            int sumValues = passwordConditions.valueVowels + passwordConditions.valueConsonant +
+                            passwordConditions.valueNumbers + passwordConditions.valueSimbols;
+            double vovelProbability = (double)passwordConditions.valueVowels / (double)sumValues;
+            double consonantProbability = (double)passwordConditions.valueConsonant / (double)sumValues;
+            double numbersProbability = (double)passwordConditions.valueNumbers / (double)sumValues;
+            double simbolsProbability = (double)passwordConditions.valueSimbols / (double)sumValues;
+
+            return new[]{vovelProbability, consonantProbability, numbersProbability, simbolsProbability};
+        }
+
+        public Password(int charactersAmount, PasswordConditions passwordConditions, bool pronounceable = true)
+        {
+            this.charactersAmount = charactersAmount;
             this.passwordConditions = passwordConditions;
             this.pronounceable = pronounceable;
         }

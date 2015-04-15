@@ -8,10 +8,10 @@ namespace PasswordGenerator
 {
     public struct PasswordConditions
     {
-        private int valueVowels;
-        private int valueConsonant;
-        private int valueNumbers;
-        private int valueSimbols;
+        public int valueVowels;
+        public int valueConsonant;
+        public int valueNumbers;
+        public int valueSimbols;
         
 
         public PasswordConditions(int valueVowels, int valueConsonant,int valueNumbers,  int valueSimbols)
