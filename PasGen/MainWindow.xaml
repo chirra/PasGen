@@ -10,7 +10,7 @@
         <TextBlock HorizontalAlignment="Left" Margin="18,15,0,0" TextWrapping="Wrap" Text="Characters:" VerticalAlignment="Top"/>
 
         <CheckBox Content="Pronounceable" HorizontalAlignment="Left" Margin="10,206,0,0" VerticalAlignment="Top"/>
-        <TextBox HorizontalAlignment="Left" Height="19" Margin="106,13,0,0" TextWrapping="Wrap" Text="8" VerticalAlignment="Top" Width="95"/>
+        <TextBox x:Name="TextBoxCharacters" HorizontalAlignment="Left" Height="19" Margin="106,13,0,0" TextWrapping="Wrap" Text="8" VerticalAlignment="Top" Width="95"/>
         <Button x:Name="ButtonGenerate" Content="Generate" HorizontalAlignment="Left" Margin="8,237,0,0" VerticalAlignment="Top" Width="94" Click="ButtonGenerate_Click"/>
         <Button x:Name="ButtonAllToClipboard" Content="All to Clipboard" HorizontalAlignment="Left" Margin="107,237,0,0" VerticalAlignment="Top" Width="94"/>
         <Button x:Name="ButtonCopyToClipboard01" Content="Click for copy to clipboard" Grid.Column="1" HorizontalAlignment="Left" Margin="10,12,0,0" VerticalAlignment="Top" Width="191"/>
@@ -27,14 +27,14 @@
         <GroupBox Header="Frequency:" HorizontalAlignment="Left" Height="152" Margin="8,40,0,0" VerticalAlignment="Top" Width="193">
             <Grid>
                 <TextBlock HorizontalAlignment="Left" Margin="10,10,0,0" TextWrapping="Wrap" Text="Vowels:" VerticalAlignment="Top"/>
-                <TextBlock HorizontalAlignment="Left" Margin="10,40,0,0" TextWrapping="Wrap" Text="Consonant:" VerticalAlignment="Top"/>
+                <TextBlock HorizontalAlignment="Left" Margin="10,40,0,0" TextWrapping="Wrap" Text="Consonants:" VerticalAlignment="Top"/>
                 <TextBlock HorizontalAlignment="Left" Margin="10,70,0,0" TextWrapping="Wrap" Text="Numbers:" VerticalAlignment="Top"/>
                 <TextBlock HorizontalAlignment="Left" Margin="10,100,0,0" TextWrapping="Wrap" Text="Simbols:" VerticalAlignment="Top"/>
 
-                <Slider HorizontalAlignment="Left" Margin="90,7,0,0" VerticalAlignment="Top" Width="90" SmallChange="1" Value="5" AutoToolTipPlacement="TopLeft" TickPlacement="TopLeft" IsSnapToTickEnabled="True"/>
-                <Slider HorizontalAlignment="Left" Margin="90,37,0,0" VerticalAlignment="Top" Width="90" SmallChange="1" Value="5" AutoToolTipPlacement="TopLeft" TickPlacement="TopLeft" IsSnapToTickEnabled="True"/>
-                <Slider HorizontalAlignment="Left" Margin="90,67,0,0" VerticalAlignment="Top" Width="90" SmallChange="1" Value="5" AutoToolTipPlacement="TopLeft" TickPlacement="TopLeft" IsSnapToTickEnabled="True"/>
-                <Slider HorizontalAlignment="Left" Margin="90,97,0,0" VerticalAlignment="Top" Width="90" SmallChange="1" Value="5" AutoToolTipPlacement="TopLeft" TickPlacement="TopLeft" IsSnapToTickEnabled="True"/>
+                <Slider x:Name="SliderVovelsFrequency" HorizontalAlignment="Left" Margin="90,7,0,0" VerticalAlignment="Top" Width="90" SmallChange="1" Value="5" AutoToolTipPlacement="TopLeft" TickPlacement="TopLeft" IsSnapToTickEnabled="True"/>
+                <Slider x:Name="SliderConsonantsFrequency" HorizontalAlignment="Left" Margin="90,37,0,0" VerticalAlignment="Top" Width="90" SmallChange="1" Value="5" AutoToolTipPlacement="TopLeft" TickPlacement="TopLeft" IsSnapToTickEnabled="True"/>
+                <Slider x:Name="SliderNumbersFrequency" HorizontalAlignment="Left" Margin="90,67,0,0" VerticalAlignment="Top" Width="90" SmallChange="1" Value="5" AutoToolTipPlacement="TopLeft" TickPlacement="TopLeft" IsSnapToTickEnabled="True"/>
+                <Slider x:Name="SliderSimbolsFrequency" HorizontalAlignment="Left" Margin="90,97,0,0" VerticalAlignment="Top" Width="90" SmallChange="1" Value="5" AutoToolTipPlacement="TopLeft" TickPlacement="TopLeft" IsSnapToTickEnabled="True"/>
 
             </Grid>
 

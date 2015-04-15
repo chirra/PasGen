@@ -28,8 +28,13 @@ namespace PasGen
 
         private void ButtonGenerate_Click(object sender, RoutedEventArgs e)
         {
-            PasswordConditions passwordConditions = new PasswordConditions(5, 5, 5, 5);
-            Password password = new Password(8,passwordConditions,true);
+            PasswordConditions passwordConditions = new PasswordConditions(
+                (int)SliderVovelsFrequency.Value, 
+                (int)SliderConsonantsFrequency.Value, 
+                (int)SliderNumbersFrequency.Value,
+                (int)SliderSimbolsFrequency.Value);
+
+            Password password = new Password(Int32.Parse(TextBoxCharacters.Text), passwordConditions, true);
             ButtonCopyToClipboard01.Content = password.GetPassword();
         }
     }

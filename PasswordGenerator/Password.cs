@@ -23,11 +23,12 @@ namespace PasswordGenerator
         {
             //Добавить сюда предварительные условия для маст хев символов
             CharactersType currentCharacterType = CharactersType.Vovels;
+
             string password = "";
 
             for (int i = 0; i < charactersAmount; i++)
             {
-                char simbol = GetNextSimbol(currentCharacterType);
+                char simbol = GetNextSimbol(ref currentCharacterType);
                 password += simbol;
             }
             return password;
@@ -35,7 +36,7 @@ namespace PasswordGenerator
 
 
         Random random = new Random();
-        private char GetNextSimbol(CharactersType currentCharacterType)
+        private char GetNextSimbol(ref CharactersType currentCharacterType)
         {
             
             double randomCube = random.NextDouble();
@@ -50,12 +51,11 @@ namespace PasswordGenerator
                 if (randomCube > sumPVectorElement)
                 {
                     ct++;
-                    //continue;
-
                 }
                 else
                 {
                     result = GetCharacterByType(ct);
+                    currentCharacterType = ct;
                     break;
 
                 }
@@ -66,24 +66,52 @@ namespace PasswordGenerator
 
         }
 
+
         Characters characters = new Characters();
         private char GetCharacterByType(CharactersType ct)
         {
-            if (ct == CharactersType.Vovels) return characters.GetRandomVowel();
-            else return characters.GetRandomConsonant();
+            switch (ct)
+            {
+                case CharactersType.Vovels:
+                    return characters.GetRandomVowel();
+                case CharactersType.Consonant:
+                    return characters.GetRandomConsonant();
+                case CharactersType.Numbers:
+                    return characters.GetRandomNumber();
+                default:
+                    return characters.GetRandomSimbol();
+            }
         }
+
 
         private double[] GetProbabilityVector(CharactersType currentCharacterType)
         {
-            int sumValues = passwordConditions.valueVowels + passwordConditions.valueConsonant +
+            /*int sumValues = passwordConditions.valueVowels + passwordConditions.valueConsonant +
                             passwordConditions.valueNumbers + passwordConditions.valueSimbols;
             double vovelProbability = (double)passwordConditions.valueVowels / (double)sumValues;
             double consonantProbability = (double)passwordConditions.valueConsonant / (double)sumValues;
             double numbersProbability = (double)passwordConditions.valueNumbers / (double)sumValues;
-            double simbolsProbability = (double)passwordConditions.valueSimbols / (double)sumValues;
+            double simbolsProbability = (double)passwordConditions.valueSimbols / (double)sumValues;*/
 
-            return new[]{vovelProbability, consonantProbability, numbersProbability, simbolsProbability};
+            double v = (double) passwordConditions.valueVowels;
+            double c = (double) passwordConditions.valueConsonant;
+            double n = (double) passwordConditions.valueNumbers;
+            double s = (double) passwordConditions.valueSimbols;
+
+
+            double[][] probabilityMatrix =
+            {
+                new []{0, c/(c + n + s), n/(c + n + s), s/(c + n + s)},
+                new []{v/(v+n+s), 0, n/(v+n+s), s/(v+n+s)}, 
+                new []{v/(v+c+s), c/(v+c+s), 0, 0}, 
+                new []{v/(v+c+n), v/(v+c+n), 0, 0}
+            };
+
+
+            //return new[]{vovelProbability, consonantProbability, numbersProbability, simbolsProbability};
+            return probabilityMatrix[(int)currentCharacterType];
         }
+
 
         public Password(int charactersAmount, PasswordConditions passwordConditions, bool pronounceable = true)
         {
