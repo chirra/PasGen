@@ -8,8 +8,8 @@ namespace PasswordGenerator
 {
     enum CharactersType
     {
-        Vovels,
-        Consonant,
+        Vowels,
+        Consonants,
         Numbers,
         Simbols
 

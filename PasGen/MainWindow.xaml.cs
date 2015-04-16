@@ -28,14 +28,34 @@ namespace PasGen
 
         private void ButtonGenerate_Click(object sender, RoutedEventArgs e)
         {
-            PasswordConditions passwordConditions = new PasswordConditions(
-                (int)SliderVovelsFrequency.Value, 
-                (int)SliderConsonantsFrequency.Value, 
-                (int)SliderNumbersFrequency.Value,
-                (int)SliderSimbolsFrequency.Value);
 
-            Password password = new Password(Int32.Parse(TextBoxCharacters.Text), passwordConditions, true);
+            PasswordConditions passwordConditions = new PasswordConditions()
+            {
+                charactersAmount = Int32.Parse(TextBoxCharacters.Text),
+                valueVowels = (int)SliderVovelsFrequency.Value,
+                valueConsonant = (int)SliderConsonantsFrequency.Value,
+                valueNumbers = (int)SliderNumbersFrequency.Value,
+                valueSimbols = (int)SliderSimbolsFrequency.Value,
+                vowelsMustHave = (bool)CheckBoxVowelsMustHave.IsChecked,
+                consonantMustHave = (bool)CheckBoxConsonantsMustHave.IsChecked,
+                numbersMustHave = (bool)CheckBoxNumbersMustHave.IsChecked,
+                simbolsMustHave = (bool)CheckBoxSimbolsMustHave.IsChecked,
+                isPronounceable = (bool)CheckBoxPronounceable.IsChecked,
+                isContainsCapsSimbols = (bool) CheckBoxCaps.IsChecked
+            };
+
+            PasswordFactory password  = new PasswordFactory(passwordConditions);
             ButtonCopyToClipboard01.Content = password.GetPassword();
+            ButtonCopyToClipboard02.Content = password.GetPassword();
+            ButtonCopyToClipboard03.Content = password.GetPassword();
+            ButtonCopyToClipboard04.Content = password.GetPassword();
+            ButtonCopyToClipboard05.Content = password.GetPassword();
+            ButtonCopyToClipboard06.Content = password.GetPassword();
+            ButtonCopyToClipboard07.Content = password.GetPassword();
+            ButtonCopyToClipboard08.Content = password.GetPassword();
+            ButtonCopyToClipboard09.Content = password.GetPassword();
+            ButtonCopyToClipboard10.Content = password.GetPassword();
+
         }
     }
 }

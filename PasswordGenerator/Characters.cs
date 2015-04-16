@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Linq;
 
 namespace PasswordGenerator
 {
@@ -9,25 +10,57 @@ namespace PasswordGenerator
         private char[] numbers = {'0', '1', '2', '3', '4', '5', '6', '7', '8', '9'};
         private char[] simbols ={'!', '@', '#', '$', '%', '^', '&', '*', '(', ')', '_', '-', '+', '=', '/', '>', '<', '?'};
 
+
         Random random = new Random();
-        public char GetRandomVowel()
+        private char GetRandomVowel()
         {
             return vowels[random.Next(vowels.Length)];
         }
 
-        public char GetRandomConsonant()
+
+        private char GetRandomConsonant()
         {
             return consonants[random.Next(consonants.Length)];
         }
 
-        public char GetRandomNumber()
+
+        private char GetRandomNumber()
         {
             return numbers[random.Next(numbers.Length)];
         }
-        public char GetRandomSimbol()
+
+
+        private char GetRandomSimbol()
         {
             return simbols[random.Next(simbols.Length)];
         }
 
+
+        public char GetCharacterByType(CharactersType characterType)
+        {
+            switch (characterType)
+            {
+                case CharactersType.Vowels:
+                    return GetRandomVowel();
+                case CharactersType.Consonants:
+                    return GetRandomConsonant();
+                case CharactersType.Numbers:
+                    return GetRandomNumber();
+                default:
+                    return GetRandomSimbol();
+            }
+        }
+
+
+        public CharactersType GetCharacterType(char character)
+        {
+            CharactersType result = CharactersType.Simbols;
+
+            if (vowels.Contains(character)) result = CharactersType.Vowels;
+            else if (consonants.Contains(character)) result = CharactersType.Consonants;
+            else if (numbers.Contains(character)) result = CharactersType.Numbers;
+            
+            return result;
+        }
     }
 }
