@@ -1,7 +1,7 @@
 ﻿<Window x:Class="PasGen.MainWindow"
         xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-        Title="MainWindow" Height="309.132" Width="438.024">
+        Title="MainWindow" Height="309.132" Width="438.024" Closing="Window_Closing">
     <Grid HorizontalAlignment="Stretch" Height="Auto" Margin="0,0,0,0" VerticalAlignment="Stretch" Width="Auto">
         <Grid.ColumnDefinitions>
             <ColumnDefinition></ColumnDefinition>
@@ -31,7 +31,7 @@
                 <TextBlock HorizontalAlignment="Left" Margin="10,70,0,0" TextWrapping="Wrap" Text="Numbers:" VerticalAlignment="Top"/>
                 <TextBlock HorizontalAlignment="Left" Margin="10,100,0,0" TextWrapping="Wrap" Text="Simbols:" VerticalAlignment="Top"/>
 
-                <Slider x:Name="SliderVovelsFrequency" HorizontalAlignment="Left" Margin="90,7,0,0" VerticalAlignment="Top" Width="70" SmallChange="1" Value="5" AutoToolTipPlacement="TopLeft" TickPlacement="TopLeft" IsSnapToTickEnabled="True"/>
+                <Slider x:Name="SliderVowelsFrequency" HorizontalAlignment="Left" Margin="90,7,0,0" VerticalAlignment="Top" Width="70" SmallChange="1" Value="5" AutoToolTipPlacement="TopLeft" TickPlacement="TopLeft" IsSnapToTickEnabled="True"/>
                 <Slider x:Name="SliderConsonantsFrequency" HorizontalAlignment="Left" Margin="90,37,0,0" VerticalAlignment="Top" Width="70" SmallChange="1" Value="5" AutoToolTipPlacement="TopLeft" TickPlacement="TopLeft" IsSnapToTickEnabled="True"/>
                 <Slider x:Name="SliderNumbersFrequency" HorizontalAlignment="Left" Margin="90,67,0,0" VerticalAlignment="Top" Width="70" SmallChange="1" Value="5" AutoToolTipPlacement="TopLeft" TickPlacement="TopLeft" IsSnapToTickEnabled="True"/>
                 <Slider x:Name="SliderSimbolsFrequency" HorizontalAlignment="Left" Margin="90,97,0,0" VerticalAlignment="Top" Width="70" SmallChange="1" Value="5" AutoToolTipPlacement="TopLeft" TickPlacement="TopLeft" IsSnapToTickEnabled="True"/>

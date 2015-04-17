@@ -1,0 +1,14 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<Settings>
+  <charactersAmount Value="8"/>
+  <valueVowels Value="5"/>
+  <valueConsonant Value="5"/>
+  <valueNumbers Value="5"/>
+  <valueSimbols Value="5"/>
+  <vowelsMustHave Value="True"/>
+  <consonantMustHave Value="True"/>
+  <numbersMustHave Value="True"/>
+  <simbolsMustHave Value="True"/>
+  <isPronounceable Value="True"/>
+  <isContainsCapsSimbols Value="True"/>
+</Settings>

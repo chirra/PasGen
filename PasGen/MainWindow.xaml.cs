@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Configuration;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -12,6 +13,7 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using Microsoft.Win32;
 using PasswordGenerator;
 
 namespace PasGen
@@ -24,6 +26,29 @@ namespace PasGen
         public MainWindow()
         {
             InitializeComponent();
+            try
+            {
+                RegistryKey myKey = Registry.CurrentUser.OpenSubKey("Software").OpenSubKey("PasGen");
+                TextBoxCharacters.Text = myKey.GetValue("CharactersAmount").ToString();
+                SliderVowelsFrequency.Value = Int32.Parse(myKey.GetValue("ValueVowels").ToString());
+                SliderConsonantsFrequency.Value = Int32.Parse(myKey.GetValue("ValueConsonant").ToString());
+                SliderNumbersFrequency.Value = Int32.Parse(myKey.GetValue("ValueNumbers").ToString());
+                SliderSimbolsFrequency.Value = Int32.Parse(myKey.GetValue("ValueSimbols").ToString());
+                CheckBoxVowelsMustHave.IsChecked = Boolean.Parse(myKey.GetValue("VowelsMustHave").ToString());
+                CheckBoxConsonantsMustHave.IsChecked = Boolean.Parse(myKey.GetValue("ConsonantMustHave").ToString());
+                CheckBoxNumbersMustHave.IsChecked = Boolean.Parse(myKey.GetValue("NumbersMustHave").ToString());
+                CheckBoxSimbolsMustHave.IsChecked = Boolean.Parse(myKey.GetValue("SimbolsMustHave").ToString());
+                CheckBoxPronounceable.IsChecked = Boolean.Parse(myKey.GetValue("IsPronounceable").ToString());
+                CheckBoxCaps.IsChecked = Boolean.Parse(myKey.GetValue("IsContainsCapsSimbols").ToString());
+                myKey.Close();
+            }
+            catch (Exception)
+            {
+                
+                TextBoxCharacters.Text = "8";
+            }
+            
+            
         }
 
         private void ButtonGenerate_Click(object sender, RoutedEventArgs e)
@@ -32,7 +57,7 @@ namespace PasGen
             PasswordConditions passwordConditions = new PasswordConditions()
             {
                 charactersAmount = Int32.Parse(TextBoxCharacters.Text),
-                valueVowels = (int)SliderVovelsFrequency.Value,
+                valueVowels = (int)SliderVowelsFrequency.Value,
                 valueConsonant = (int)SliderConsonantsFrequency.Value,
                 valueNumbers = (int)SliderNumbersFrequency.Value,
                 valueSimbols = (int)SliderSimbolsFrequency.Value,
@@ -56,6 +81,32 @@ namespace PasGen
             ButtonCopyToClipboard09.Content = password.GetPassword();
             ButtonCopyToClipboard10.Content = password.GetPassword();
 
+        }
+
+        private void Window_Closing(object sender, System.ComponentModel.CancelEventArgs e)
+        {
+            try
+            {
+                RegistryKey myKey = Registry.CurrentUser.CreateSubKey("Software\\PasGen");
+                myKey.SetValue("CharactersAmount", TextBoxCharacters.Text);
+                myKey.SetValue("ValueVowels", SliderVowelsFrequency.Value.ToString());
+                myKey.SetValue("ValueConsonant", SliderConsonantsFrequency.Value.ToString());
+                myKey.SetValue("ValueNumbers", SliderNumbersFrequency.Value.ToString());
+                myKey.SetValue("ValueSimbols", SliderSimbolsFrequency.Value.ToString());
+
+                myKey.SetValue("VowelsMustHave", CheckBoxVowelsMustHave.IsChecked.ToString());
+                myKey.SetValue("ConsonantMustHave", CheckBoxConsonantsMustHave.IsChecked.ToString());
+                myKey.SetValue("NumbersMustHave", CheckBoxNumbersMustHave.IsChecked.ToString());
+                myKey.SetValue("SimbolsMustHave", CheckBoxSimbolsMustHave.IsChecked.ToString());
+                myKey.SetValue("IsPronounceable", CheckBoxPronounceable.IsChecked.ToString());
+                myKey.SetValue("IsContainsCapsSimbols", CheckBoxCaps.IsChecked.ToString());
+                myKey.Close();
+            }
+            catch (Exception)
+            {
+
+                MessageBox.Show("Can't save settings to registry", "PasGen Error");
+            }
         }
     }
 }
