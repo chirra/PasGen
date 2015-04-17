@@ -36,7 +36,7 @@ namespace PasswordGenerator
         }
 
 
-        public char GetCharacterByType(CharactersType characterType)
+        public char GetRandomCharacterByType(CharactersType characterType)
         {
             switch (characterType)
             {

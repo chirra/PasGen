@@ -17,8 +17,8 @@ namespace PasswordGenerator
             {
                 new []{0, c/(c + n + s), n/(c + n + s), s/(c + n + s)},
                 new []{v/(v+n+s), 0, n/(v+n+s), s/(v+n+s)}, 
-                new []{v/(v+c+s), c/(v+c+s), 0, 0}, 
-                new []{v/(v+c+n), v/(v+c+n), 0, 0}
+                new []{v/(v+c), c/(v+c), 0, 0}, 
+                new []{v/(v+c), c/(v+c), 0, 0}
             };
 
             return probabilityMatrix[(int)CurrentCharacterType];

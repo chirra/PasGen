@@ -17,35 +17,26 @@ namespace PasswordGenerator
         public CharactersType CurrentCharacterType { get; set; }
     
 
-        //public abstract char GetNextSimbol();
-
         protected abstract double[] GetProbabilityVector();
     
+        
         public char GetSimbol()
         {
             double[] probabilityVector = GetProbabilityVector();
             double randomCube = random.NextDouble();
             double sumPVectorElement = 0;
-            CharactersType ct = 0;
-            char result = ' ';
-
+            CurrentCharacterType = 0;
+            
             foreach (double p in probabilityVector)
             {
                 sumPVectorElement += p;
-                if (randomCube > sumPVectorElement)
-                {
-                    ct++;
-                }
+                if (sumPVectorElement < randomCube)
+                    CurrentCharacterType++;
                 else
-                {
-                    result = characters.GetCharacterByType(ct);
-                    CurrentCharacterType = ct;
-                    break;
-                }
-
+                    return characters.GetRandomCharacterByType(CurrentCharacterType);
             }
 
-            return result;
+            return ' ';
         }
 
     }

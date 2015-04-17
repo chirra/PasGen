@@ -7,6 +7,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PasGen", "PasGen\PasGen.csp
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PasswordGenerator", "PasswordGenerator\PasswordGenerator.csproj", "{97005D9B-8F0A-4D35-872C-2CCAC51207B2}"
 EndProject
+Project("{F088123C-0E9E-452A-89E6-6BA2F21D5CAC}") = "ModelingProject1", "ModelingProject1\ModelingProject1.modelproj", "{DADB65E1-39B3-4C10-B3F1-00BE2B01797D}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -21,6 +23,10 @@ Global
 		{97005D9B-8F0A-4D35-872C-2CCAC51207B2}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{97005D9B-8F0A-4D35-872C-2CCAC51207B2}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{97005D9B-8F0A-4D35-872C-2CCAC51207B2}.Release|Any CPU.Build.0 = Release|Any CPU
+		{DADB65E1-39B3-4C10-B3F1-00BE2B01797D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{DADB65E1-39B3-4C10-B3F1-00BE2B01797D}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{DADB65E1-39B3-4C10-B3F1-00BE2B01797D}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{DADB65E1-39B3-4C10-B3F1-00BE2B01797D}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

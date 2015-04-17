@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Diagnostics.Eventing.Reader;
 using System.Linq;
 using System.Text;
+using System.Threading;
 using System.Threading.Tasks;
 
 namespace PasswordGenerator
@@ -40,6 +41,7 @@ namespace PasswordGenerator
             {
                 simbol = characterGenerator.GetSimbol();
                 password.Append(simbol);
+                Thread.Sleep(1);
             }
             return password.ToString();
         }
@@ -53,13 +55,13 @@ namespace PasswordGenerator
         {
             StringBuilder result = new StringBuilder("");
             if (passwordConditions.vowelsMustHave)
-                result.Append(characters.GetCharacterByType(CharactersType.Vowels));
+                result.Append(characters.GetRandomCharacterByType(CharactersType.Vowels));
             if (passwordConditions.consonantMustHave)
-                result.Append(characters.GetCharacterByType(CharactersType.Consonants));
+                result.Append(characters.GetRandomCharacterByType(CharactersType.Consonants));
             if (passwordConditions.numbersMustHave)
-                result.Append(characters.GetCharacterByType(CharactersType.Numbers));
+                result.Append(characters.GetRandomCharacterByType(CharactersType.Numbers));
             if (passwordConditions.simbolsMustHave)
-                result.Append(characters.GetCharacterByType(CharactersType.Simbols));
+                result.Append(characters.GetRandomCharacterByType(CharactersType.Simbols));
 
             // Mix characters
             for (int i = 0; i < result.Length; i++)
