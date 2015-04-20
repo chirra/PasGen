@@ -109,61 +109,33 @@ namespace PasGen
             }
         }
 
-        private void ButtonCopyToClipboard01_Click(object sender, RoutedEventArgs e)
-        {
-            CommandCopyToClipboard(e.OriginalSource, null);
-        }
 
-        private void ButtonCopyToClipboard02_Click(object sender, RoutedEventArgs e)
+        private void CommandCopyToClipboard(string text)
         {
-            CommandCopyToClipboard(e.OriginalSource, null);
-        }
-
-        private void ButtonCopyToClipboard03_Click(object sender, RoutedEventArgs e)
-        {
-            CommandCopyToClipboard(e.OriginalSource, null);
-        }
-
-        private void ButtonCopyToClipboard04_Click(object sender, RoutedEventArgs e)
-        {
-            CommandCopyToClipboard(e.OriginalSource, null);
-        }
-
-        private void ButtonCopyToClipboard05_Click(object sender, RoutedEventArgs e)
-        {
-            CommandCopyToClipboard(e.OriginalSource, null);
-        }
-
-        private void ButtonCopyToClipboard06_Click(object sender, RoutedEventArgs e)
-        {
-            CommandCopyToClipboard(e.OriginalSource, null);
-        }
-
-        private void ButtonCopyToClipboard07_Click(object sender, RoutedEventArgs e)
-        {
-            CommandCopyToClipboard(e.OriginalSource, null);
-        }
-
-        private void ButtonCopyToClipboard08_Click(object sender, RoutedEventArgs e)
-        {
-            CommandCopyToClipboard(e.OriginalSource, null);
-        }
-
-        private void ButtonCopyToClipboard09_Click(object sender, RoutedEventArgs e)
-        {
-            CommandCopyToClipboard(e.OriginalSource, null);
-        }
-
-        private void ButtonCopyToClipboard10_Click(object sender, RoutedEventArgs e)
-        {
-            CommandCopyToClipboard(e.OriginalSource, null);
+            Clipboard.SetData(DataFormats.Text, text);
         }
 
 
-
-        private void CommandCopyToClipboard(object sender, ExecutedRoutedEventArgs e)
+        private void ButtonCopyToClipboard_Click(object sender, RoutedEventArgs e)
         {
-            Clipboard.SetData(DataFormats.Text, ((Button)sender).Content.ToString());
+            CommandCopyToClipboard(e.OriginalSource.ToString());
         }
+
+        private void ButtonAllToClipboard_Click(object sender, RoutedEventArgs e)
+        {
+            string result = ButtonCopyToClipboard01.Content.ToString() + "\n" +
+            ButtonCopyToClipboard02.Content.ToString() + "\n" +
+            ButtonCopyToClipboard03.Content.ToString() + "\n" +
+            ButtonCopyToClipboard04.Content.ToString() + "\n" +
+            ButtonCopyToClipboard05.Content.ToString() + "\n" +
+            ButtonCopyToClipboard06.Content.ToString() + "\n" +
+            ButtonCopyToClipboard07.Content.ToString() + "\n" +
+            ButtonCopyToClipboard08.Content.ToString() + "\n" +
+            ButtonCopyToClipboard09.Content.ToString() + "\n" +
+            ButtonCopyToClipboard10.Content.ToString();
+
+            CommandCopyToClipboard(result);
+        }
+
     }
 }

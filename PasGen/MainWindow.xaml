@@ -12,17 +12,17 @@
         <CheckBox x:Name="CheckBoxPronounceable" Content="Pronounceable" HorizontalAlignment="Left" Margin="10,206,0,0" VerticalAlignment="Top"/>
         <TextBox x:Name="TextBoxCharacters" HorizontalAlignment="Left" Height="19" Margin="106,13,0,0" TextWrapping="Wrap" Text="8" VerticalAlignment="Top" Width="95"/>
         <Button x:Name="ButtonGenerate" Content="Generate" HorizontalAlignment="Left" Margin="8,237,0,0" VerticalAlignment="Top" Width="94" Click="ButtonGenerate_Click"/>
-        <Button x:Name="ButtonAllToClipboard" Content="All to Clipboard" HorizontalAlignment="Left" Margin="107,237,0,0" VerticalAlignment="Top" Width="94"/>
-        <Button x:Name="ButtonCopyToClipboard01" Content="Click for copy to clipboard" Grid.Column="1" HorizontalAlignment="Left" Margin="10,12,0,0" VerticalAlignment="Top" Width="191" Click="ButtonCopyToClipboard01_Click"/>
-        <Button x:Name="ButtonCopyToClipboard02" Content="Click for copy to clipboard" Grid.Column="1" HorizontalAlignment="Left" Margin="10,37,0,0" VerticalAlignment="Top" Width="191" Click="ButtonCopyToClipboard02_Click"/>
-        <Button x:Name="ButtonCopyToClipboard03" Content="Click for copy to clipboard" Grid.Column="1" HorizontalAlignment="Left" Margin="10,62,0,0" VerticalAlignment="Top" Width="191" Click="ButtonCopyToClipboard03_Click"/>
-        <Button x:Name="ButtonCopyToClipboard04" Content="Click for copy to clipboard" Grid.Column="1" HorizontalAlignment="Left" Margin="10,87,0,0" VerticalAlignment="Top" Width="191" Click="ButtonCopyToClipboard04_Click"/>
-        <Button x:Name="ButtonCopyToClipboard05" Content="Click for copy to clipboard" Grid.Column="1" HorizontalAlignment="Left" Margin="10,112,0,0" VerticalAlignment="Top" Width="191" Click="ButtonCopyToClipboard05_Click"/>
-        <Button x:Name="ButtonCopyToClipboard06" Content="Click for copy to clipboard" Grid.Column="1" HorizontalAlignment="Left" Margin="10,137,0,0" VerticalAlignment="Top" Width="191" Click="ButtonCopyToClipboard06_Click"/>
-        <Button x:Name="ButtonCopyToClipboard07" Content="Click for copy to clipboard" Grid.Column="1" HorizontalAlignment="Left" Margin="10,162,0,0" VerticalAlignment="Top" Width="191" Click="ButtonCopyToClipboard07_Click"/>
-        <Button x:Name="ButtonCopyToClipboard08" Content="Click for copy to clipboard" Grid.Column="1" HorizontalAlignment="Left" Margin="10,187,0,0" VerticalAlignment="Top" Width="191" Click="ButtonCopyToClipboard08_Click"/>
-        <Button x:Name="ButtonCopyToClipboard09" Content="Click for copy to clipboard" Grid.Column="1" HorizontalAlignment="Left" Margin="10,212,0,0" VerticalAlignment="Top" Width="191" Click="ButtonCopyToClipboard09_Click"/>
-        <Button x:Name="ButtonCopyToClipboard10" Content="Click for copy to clipboard" Grid.Column="1" HorizontalAlignment="Left" Margin="10,237,0,0" VerticalAlignment="Top" Width="191" Click="ButtonCopyToClipboard10_Click"/>
+        <Button x:Name="ButtonAllToClipboard" Content="All to Clipboard" HorizontalAlignment="Left" Margin="107,237,0,0" VerticalAlignment="Top" Width="94" Click="ButtonAllToClipboard_Click"/>
+        <Button x:Name="ButtonCopyToClipboard01" Content="Click for copy to clipboard" Grid.Column="1" HorizontalAlignment="Left" Margin="10,12,0,0" VerticalAlignment="Top" Width="191" Click="ButtonCopyToClipboard_Click"/>
+        <Button x:Name="ButtonCopyToClipboard02" Content="Click for copy to clipboard" Grid.Column="1" HorizontalAlignment="Left" Margin="10,37,0,0" VerticalAlignment="Top" Width="191" Click="ButtonCopyToClipboard_Click"/>
+        <Button x:Name="ButtonCopyToClipboard03" Content="Click for copy to clipboard" Grid.Column="1" HorizontalAlignment="Left" Margin="10,62,0,0" VerticalAlignment="Top" Width="191" Click="ButtonCopyToClipboard_Click"/>
+        <Button x:Name="ButtonCopyToClipboard04" Content="Click for copy to clipboard" Grid.Column="1" HorizontalAlignment="Left" Margin="10,87,0,0" VerticalAlignment="Top" Width="191" Click="ButtonCopyToClipboard_Click"/>
+        <Button x:Name="ButtonCopyToClipboard05" Content="Click for copy to clipboard" Grid.Column="1" HorizontalAlignment="Left" Margin="10,112,0,0" VerticalAlignment="Top" Width="191" Click="ButtonCopyToClipboard_Click"/>
+        <Button x:Name="ButtonCopyToClipboard06" Content="Click for copy to clipboard" Grid.Column="1" HorizontalAlignment="Left" Margin="10,137,0,0" VerticalAlignment="Top" Width="191" Click="ButtonCopyToClipboard_Click"/>
+        <Button x:Name="ButtonCopyToClipboard07" Content="Click for copy to clipboard" Grid.Column="1" HorizontalAlignment="Left" Margin="10,162,0,0" VerticalAlignment="Top" Width="191" Click="ButtonCopyToClipboard_Click"/>
+        <Button x:Name="ButtonCopyToClipboard08" Content="Click for copy to clipboard" Grid.Column="1" HorizontalAlignment="Left" Margin="10,187,0,0" VerticalAlignment="Top" Width="191" Click="ButtonCopyToClipboard_Click"/>
+        <Button x:Name="ButtonCopyToClipboard09" Content="Click for copy to clipboard" Grid.Column="1" HorizontalAlignment="Left" Margin="10,212,0,0" VerticalAlignment="Top" Width="191" Click="ButtonCopyToClipboard_Click"/>
+        <Button x:Name="ButtonCopyToClipboard10" Content="Click for copy to clipboard" Grid.Column="1" HorizontalAlignment="Left" Margin="10,237,0,0" VerticalAlignment="Top" Width="191" Click="ButtonCopyToClipboard_Click"/>
         <CheckBox x:Name="CheckBoxCaps" Content="CAPS" HorizontalAlignment="Left" Margin="121,206,0,0" VerticalAlignment="Top"/>
         <GroupBox Header="Frequency:" HorizontalAlignment="Left" Height="152" Margin="8,40,0,0" VerticalAlignment="Top" Width="193">
             <Grid>
