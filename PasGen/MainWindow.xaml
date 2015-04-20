@@ -1,7 +1,7 @@
 ﻿<Window x:Class="PasGen.MainWindow"
         xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-        Title="MainWindow" Height="309.132" Width="438.024" Closing="Window_Closing">
+        Title="PasGen v. 2.0" Height="309.132" Width="438.024" Closing="Window_Closing" Icon="Images/asterisk.ico">
     <Grid HorizontalAlignment="Stretch" Height="Auto" Margin="0,0,0,0" VerticalAlignment="Stretch" Width="Auto">
         <Grid.ColumnDefinitions>
             <ColumnDefinition></ColumnDefinition>
@@ -23,7 +23,7 @@
         <Button x:Name="ButtonCopyToClipboard08" Content="Click for copy to clipboard" Grid.Column="1" HorizontalAlignment="Left" Margin="10,187,0,0" VerticalAlignment="Top" Width="191"/>
         <Button x:Name="ButtonCopyToClipboard09" Content="Click for copy to clipboard" Grid.Column="1" HorizontalAlignment="Left" Margin="10,212,0,0" VerticalAlignment="Top" Width="191"/>
         <Button x:Name="ButtonCopyToClipboard10" Content="Click for copy to clipboard" Grid.Column="1" HorizontalAlignment="Left" Margin="10,237,0,0" VerticalAlignment="Top" Width="191"/>
-        <CheckBox x:Name="CheckBoxCaps" Content="CAPS" HorizontalAlignment="Left" Margin="128,206,0,0" VerticalAlignment="Top"/>
+        <CheckBox x:Name="CheckBoxCaps" Content="CAPS" HorizontalAlignment="Left" Margin="121,206,0,0" VerticalAlignment="Top"/>
         <GroupBox Header="Frequency:" HorizontalAlignment="Left" Height="152" Margin="8,40,0,0" VerticalAlignment="Top" Width="193">
             <Grid>
                 <TextBlock HorizontalAlignment="Left" Margin="10,10,0,0" TextWrapping="Wrap" Text="Vowels:" VerticalAlignment="Top"/>
@@ -43,6 +43,7 @@
             </Grid>
 
         </GroupBox>
+        <Button x:Name="ButtonSettings" Content="{StaticResource ImageSettings}" HorizontalAlignment="Left" Margin="183,203,0,0" VerticalAlignment="Top" Width="18" Height="18"/>
 
 
 
