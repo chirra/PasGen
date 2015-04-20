@@ -108,5 +108,62 @@ namespace PasGen
                 MessageBox.Show("Can't save settings to registry", "PasGen Error");
             }
         }
+
+        private void ButtonCopyToClipboard01_Click(object sender, RoutedEventArgs e)
+        {
+            CommandCopyToClipboard(e.OriginalSource, null);
+        }
+
+        private void ButtonCopyToClipboard02_Click(object sender, RoutedEventArgs e)
+        {
+            CommandCopyToClipboard(e.OriginalSource, null);
+        }
+
+        private void ButtonCopyToClipboard03_Click(object sender, RoutedEventArgs e)
+        {
+            CommandCopyToClipboard(e.OriginalSource, null);
+        }
+
+        private void ButtonCopyToClipboard04_Click(object sender, RoutedEventArgs e)
+        {
+            CommandCopyToClipboard(e.OriginalSource, null);
+        }
+
+        private void ButtonCopyToClipboard05_Click(object sender, RoutedEventArgs e)
+        {
+            CommandCopyToClipboard(e.OriginalSource, null);
+        }
+
+        private void ButtonCopyToClipboard06_Click(object sender, RoutedEventArgs e)
+        {
+            CommandCopyToClipboard(e.OriginalSource, null);
+        }
+
+        private void ButtonCopyToClipboard07_Click(object sender, RoutedEventArgs e)
+        {
+            CommandCopyToClipboard(e.OriginalSource, null);
+        }
+
+        private void ButtonCopyToClipboard08_Click(object sender, RoutedEventArgs e)
+        {
+            CommandCopyToClipboard(e.OriginalSource, null);
+        }
+
+        private void ButtonCopyToClipboard09_Click(object sender, RoutedEventArgs e)
+        {
+            CommandCopyToClipboard(e.OriginalSource, null);
+        }
+
+        private void ButtonCopyToClipboard10_Click(object sender, RoutedEventArgs e)
+        {
+            CommandCopyToClipboard(e.OriginalSource, null);
+        }
+
+
+
+        private void CommandCopyToClipboard(object sender, ExecutedRoutedEventArgs e)
+        {
+            Clipboard.SetData(DataFormats.Text, ((Button)sender).Content.ToString());
+        }
     }
 }

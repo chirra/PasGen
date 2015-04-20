@@ -13,3 +13,5 @@ C:\.vstudio\PasGen\PasGen\obj\Debug\PasGen.exe
 C:\.vstudio\PasGen\PasGen\obj\Debug\PasGen.pdb
 C:\.vstudio\PasGen\PasGen\bin\Debug\PasswordGenerator.dll
 C:\.vstudio\PasGen\PasGen\bin\Debug\PasswordGenerator.pdb
+C:\.vstudio\Pasgen\PasGen\obj\Debug\AppResources.baml
+C:\.vstudio\Pasgen\PasGen\obj\Debug\App.baml
