@@ -13,100 +13,69 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using System.Windows.Threading;
 using Microsoft.Win32;
 using PasswordGenerator;
 
 namespace PasGen
 {
+
     /// <summary>
     /// Interaction logic for MainWindow.xaml
     /// </summary>
     public partial class MainWindow : Window
     {
+        List<Button> allPasswordButtons = new List<Button>();
+        private PasswordConditions passwordConditions = new PasswordConditions();
+
         public MainWindow()
         {
             InitializeComponent();
-            try
-            {
-                RegistryKey myKey = Registry.CurrentUser.OpenSubKey("Software").OpenSubKey("PasGen");
-                TextBoxCharacters.Text = myKey.GetValue("CharactersAmount").ToString();
-                SliderVowelsFrequency.Value = Int32.Parse(myKey.GetValue("ValueVowels").ToString());
-                SliderConsonantsFrequency.Value = Int32.Parse(myKey.GetValue("ValueConsonant").ToString());
-                SliderNumbersFrequency.Value = Int32.Parse(myKey.GetValue("ValueNumbers").ToString());
-                SliderSimbolsFrequency.Value = Int32.Parse(myKey.GetValue("ValueSimbols").ToString());
-                CheckBoxVowelsMustHave.IsChecked = Boolean.Parse(myKey.GetValue("VowelsMustHave").ToString());
-                CheckBoxConsonantsMustHave.IsChecked = Boolean.Parse(myKey.GetValue("ConsonantMustHave").ToString());
-                CheckBoxNumbersMustHave.IsChecked = Boolean.Parse(myKey.GetValue("NumbersMustHave").ToString());
-                CheckBoxSimbolsMustHave.IsChecked = Boolean.Parse(myKey.GetValue("SimbolsMustHave").ToString());
-                CheckBoxPronounceable.IsChecked = Boolean.Parse(myKey.GetValue("IsPronounceable").ToString());
-                CheckBoxCaps.IsChecked = Boolean.Parse(myKey.GetValue("IsContainsCapsSimbols").ToString());
-                myKey.Close();
-            }
-            catch (Exception)
-            {
-                
-                TextBoxCharacters.Text = "8";
-            }
-            
-            
+            allPasswordButtons.Add(ButtonCopyToClipboard01);
+            allPasswordButtons.Add(ButtonCopyToClipboard02);
+            allPasswordButtons.Add(ButtonCopyToClipboard03);
+            allPasswordButtons.Add(ButtonCopyToClipboard04);
+            allPasswordButtons.Add(ButtonCopyToClipboard05);
+            allPasswordButtons.Add(ButtonCopyToClipboard06);
+            allPasswordButtons.Add(ButtonCopyToClipboard07);
+            allPasswordButtons.Add(ButtonCopyToClipboard08);
+            allPasswordButtons.Add(ButtonCopyToClipboard09);
+            allPasswordButtons.Add(ButtonCopyToClipboard10);
+
+            passwordConditions = MainOptions.LoadFromRegistry();
+        }
+
+        private void SavePasswordConditions()
+        {
+            passwordConditions.charactersAmount = Int32.Parse(TextBoxCharacters.Text);
+            passwordConditions.valueVowels = (int) SliderVowelsFrequency.Value;
+            passwordConditions.valueConsonant = (int) SliderConsonantsFrequency.Value;
+            passwordConditions.valueNumbers = (int) SliderNumbersFrequency.Value;
+            passwordConditions.valueSimbols = (int) SliderSimbolsFrequency.Value;
+            passwordConditions.vowelsMustHave = (bool) CheckBoxVowelsMustHave.IsChecked;
+            passwordConditions.consonantMustHave = (bool) CheckBoxConsonantsMustHave.IsChecked;
+            passwordConditions.numbersMustHave = (bool) CheckBoxNumbersMustHave.IsChecked;
+            passwordConditions.simbolsMustHave = (bool) CheckBoxSimbolsMustHave.IsChecked;
+            passwordConditions.isPronounceable = (bool) CheckBoxPronounceable.IsChecked;
+            passwordConditions.isContainsCapsSimbols = (bool) CheckBoxCaps.IsChecked;
         }
 
         private void ButtonGenerate_Click(object sender, RoutedEventArgs e)
         {
-
-            PasswordConditions passwordConditions = new PasswordConditions()
-            {
-                charactersAmount = Int32.Parse(TextBoxCharacters.Text),
-                valueVowels = (int)SliderVowelsFrequency.Value,
-                valueConsonant = (int)SliderConsonantsFrequency.Value,
-                valueNumbers = (int)SliderNumbersFrequency.Value,
-                valueSimbols = (int)SliderSimbolsFrequency.Value,
-                vowelsMustHave = (bool)CheckBoxVowelsMustHave.IsChecked,
-                consonantMustHave = (bool)CheckBoxConsonantsMustHave.IsChecked,
-                numbersMustHave = (bool)CheckBoxNumbersMustHave.IsChecked,
-                simbolsMustHave = (bool)CheckBoxSimbolsMustHave.IsChecked,
-                isPronounceable = (bool)CheckBoxPronounceable.IsChecked,
-                isContainsCapsSimbols = (bool) CheckBoxCaps.IsChecked
-            };
-
+            SavePasswordConditions();
             PasswordFactory password  = new PasswordFactory(passwordConditions);
-            ButtonCopyToClipboard01.Content = password.GetPassword();
-            ButtonCopyToClipboard02.Content = password.GetPassword();
-            ButtonCopyToClipboard03.Content = password.GetPassword();
-            ButtonCopyToClipboard04.Content = password.GetPassword();
-            ButtonCopyToClipboard05.Content = password.GetPassword();
-            ButtonCopyToClipboard06.Content = password.GetPassword();
-            ButtonCopyToClipboard07.Content = password.GetPassword();
-            ButtonCopyToClipboard08.Content = password.GetPassword();
-            ButtonCopyToClipboard09.Content = password.GetPassword();
-            ButtonCopyToClipboard10.Content = password.GetPassword();
+            foreach (var button in allPasswordButtons)
+            {
+                button.Content = password.GetPassword();
+                button.Background = Brushes.LightGray;
+            }
 
         }
 
         private void Window_Closing(object sender, System.ComponentModel.CancelEventArgs e)
         {
-            try
-            {
-                RegistryKey myKey = Registry.CurrentUser.CreateSubKey("Software\\PasGen");
-                myKey.SetValue("CharactersAmount", TextBoxCharacters.Text);
-                myKey.SetValue("ValueVowels", SliderVowelsFrequency.Value.ToString());
-                myKey.SetValue("ValueConsonant", SliderConsonantsFrequency.Value.ToString());
-                myKey.SetValue("ValueNumbers", SliderNumbersFrequency.Value.ToString());
-                myKey.SetValue("ValueSimbols", SliderSimbolsFrequency.Value.ToString());
-
-                myKey.SetValue("VowelsMustHave", CheckBoxVowelsMustHave.IsChecked.ToString());
-                myKey.SetValue("ConsonantMustHave", CheckBoxConsonantsMustHave.IsChecked.ToString());
-                myKey.SetValue("NumbersMustHave", CheckBoxNumbersMustHave.IsChecked.ToString());
-                myKey.SetValue("SimbolsMustHave", CheckBoxSimbolsMustHave.IsChecked.ToString());
-                myKey.SetValue("IsPronounceable", CheckBoxPronounceable.IsChecked.ToString());
-                myKey.SetValue("IsContainsCapsSimbols", CheckBoxCaps.IsChecked.ToString());
-                myKey.Close();
-            }
-            catch (Exception)
-            {
-
-                MessageBox.Show("Can't save settings to registry", "PasGen Error");
-            }
+            SavePasswordConditions();
+            MainOptions.SaveToRegistry(passwordConditions);
         }
 
 
@@ -118,24 +87,28 @@ namespace PasGen
 
         private void ButtonCopyToClipboard_Click(object sender, RoutedEventArgs e)
         {
-            CommandCopyToClipboard(e.OriginalSource.ToString());
+           ((Button) e.OriginalSource).Background = Brushes.Orange;
+            CommandCopyToClipboard(((Button)e.OriginalSource).Content.ToString());
         }
+
+       
 
         private void ButtonAllToClipboard_Click(object sender, RoutedEventArgs e)
         {
-            string result = ButtonCopyToClipboard01.Content.ToString() + "\n" +
-            ButtonCopyToClipboard02.Content.ToString() + "\n" +
-            ButtonCopyToClipboard03.Content.ToString() + "\n" +
-            ButtonCopyToClipboard04.Content.ToString() + "\n" +
-            ButtonCopyToClipboard05.Content.ToString() + "\n" +
-            ButtonCopyToClipboard06.Content.ToString() + "\n" +
-            ButtonCopyToClipboard07.Content.ToString() + "\n" +
-            ButtonCopyToClipboard08.Content.ToString() + "\n" +
-            ButtonCopyToClipboard09.Content.ToString() + "\n" +
-            ButtonCopyToClipboard10.Content.ToString();
+            string result="";
+            foreach (var button in allPasswordButtons)
+                result += button.Content.ToString() + "\n";
 
             CommandCopyToClipboard(result);
         }
 
+
+      private void ButtonSettings_Click(object sender, RoutedEventArgs e)
+        {
+            WindowSettings windowSettings = new WindowSettings();
+            windowSettings.ShowDialog();
+        }
+
+    
     }
 }

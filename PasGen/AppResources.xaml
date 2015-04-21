@@ -2,4 +2,5 @@
                     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
     <Image x:Key="ImageActerisk" Source="Images/asterisk.png"/>
     <Image x:Key="ImageSettings" Source="Images/settings.png"/>
+    
 </ResourceDictionary>

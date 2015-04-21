@@ -10,11 +10,11 @@ none
 false
 DEBUG;TRACE
 C:\.vstudio\Pasgen\PasGen\App.xaml
-2-2140485312
+3-497813901
 
-5-2017746502
+7-358583817
 15-1818727380
-AppResources.xaml;MainWindow.xaml;
+AppResources.xaml;MainWindow.xaml;WindowSettings.xaml;
 
 False
 
