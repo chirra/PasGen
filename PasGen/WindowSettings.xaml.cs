@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Globalization;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -11,6 +12,7 @@ using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
+using LocalizatorHelper;
 
 namespace PasGen
 {
@@ -19,25 +21,34 @@ namespace PasGen
     /// </summary>
     public partial class WindowSettings : Window
     {
-        public WindowSettings()
+        
+        public WindowSettings(CultureInfo currentCulture)
         {
+            
             InitializeComponent();
+            if (currentCulture.IetfLanguageTag == "ru-RU") ComboBoxLanguage.Text = "RU";
+            else if (currentCulture.IetfLanguageTag == "en-US") ComboBoxLanguage.Text = "EN";
+            //ComboBoxLanguage.SelectedIndex = ComboBoxLanguage.Items.IndexOf(currentCulture.IetfLanguageTag);
+
+
+            //ResourceManagerService.RegisterManager("MainWindowRes", MainWindowRes.ResourceManager, true);
         }
 
-        private void btn1_Click(object sender, RoutedEventArgs e)
+        public string Lang { get; set; }
+
+       /* private void ButtonBase_OnClick(object sender, RoutedEventArgs e)
         {
-            btn1.Background = Brushes.LightBlue;
+            if (((Button)e.OriginalSource).Content.ToString() == "RU")
+                ResourceManagerService.ChangeLocale("ru-RU");
+            else ResourceManagerService.ChangeLocale("en-EN");
+        }*/
+
+        private void ButtonOk_Click(object sender, RoutedEventArgs e)
+        {
+            Lang = ComboBoxLanguage.Text;
+            DialogResult = true;
         }
 
-        private void btn2_Click(object sender, RoutedEventArgs e)
-        {
-            btn2.Background = Brushes.Pink;
-        }
-
-        private void btn3_Click(object sender, RoutedEventArgs e)
-        {
-            btn1.Background = Brushes.Pink;
-            btn2.Background = Brushes.LightBlue;
-        }
+       
     }
 }

@@ -56,6 +56,11 @@
       <SubType>Designer</SubType>
     </ApplicationDefinition>
     <Compile Include="MainOptions.cs" />
+    <Compile Include="MainWindowRes.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>MainWindowRes.resx</DependentUpon>
+    </Compile>
     <Compile Include="WindowSettings.xaml.cs">
       <DependentUpon>WindowSettings.xaml</DependentUpon>
     </Compile>
@@ -94,6 +99,11 @@
       <DependentUpon>Settings.settings</DependentUpon>
       <DesignTimeSharedInput>True</DesignTimeSharedInput>
     </Compile>
+    <EmbeddedResource Include="MainWindowRes.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>MainWindowRes.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="MainWindowRes.ru.resx" />
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
@@ -108,6 +118,10 @@
     <None Include="App.config" />
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\LocalizatorHelper\LocalizatorHelper.csproj">
+      <Project>{e9a64bd9-737b-4046-ac54-647ec51a2852}</Project>
+      <Name>LocalizatorHelper</Name>
+    </ProjectReference>
     <ProjectReference Include="..\PasswordGenerator\PasswordGenerator.csproj">
       <Project>{97005d9b-8f0a-4d35-872c-2ccac51207b2}</Project>
       <Name>PasswordGenerator</Name>

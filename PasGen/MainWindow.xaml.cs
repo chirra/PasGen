@@ -1,7 +1,9 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Configuration;
+using System.Globalization;
 using System.Linq;
+using System.Resources;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows;
@@ -14,6 +16,7 @@ using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
 using System.Windows.Threading;
+using LocalizatorHelper;
 using Microsoft.Win32;
 using PasswordGenerator;
 
@@ -31,6 +34,7 @@ namespace PasGen
         public MainWindow()
         {
             InitializeComponent();
+            ResourceManagerService.RegisterManager("MainWindowRes", MainWindowRes.ResourceManager, true);
             allPasswordButtons.Add(ButtonCopyToClipboard01);
             allPasswordButtons.Add(ButtonCopyToClipboard02);
             allPasswordButtons.Add(ButtonCopyToClipboard03);
@@ -104,11 +108,35 @@ namespace PasGen
 
 
       private void ButtonSettings_Click(object sender, RoutedEventArgs e)
-        {
-            WindowSettings windowSettings = new WindowSettings();
-            windowSettings.ShowDialog();
+      {
+          //string lang="";
+            WindowSettings windowSettings = new WindowSettings(CultureInfo.CurrentCulture);
+          if (windowSettings.ShowDialog() == true)
+          {
+              if (windowSettings.Lang == "RU") ResourceManagerService.ChangeLocale("ru-RU");
+              else if (windowSettings.Lang == "EN") ResourceManagerService.ChangeLocale("en-US"); ;
+          }
+
+          //windowSettings.ShowDialog();
         }
 
-    
+
+        private void ButtonBase_OnClick(object sender, RoutedEventArgs e)
+        {
+            if (((Button)e.OriginalSource).Content.ToString() == "RU")
+                ResourceManagerService.ChangeLocale("ru-RU");
+            else ResourceManagerService.ChangeLocale("en-US"); ;
+        }
+
+        private void RuMenuItem_OnClick(object sender, RoutedEventArgs e)
+        {
+            ResourceManagerService.ChangeLocale("ru-RU");
+        }
+
+        private void EnMenuItem_OnClick(object sender, RoutedEventArgs e)
+        {
+            ResourceManagerService.ChangeLocale("en-US");
+        }
+
     }
 }

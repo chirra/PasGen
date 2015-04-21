@@ -1,0 +1,15 @@
+D:\DevTemp\WpfLocalizationSample\LocalizatorHelper\obj\Debug\ResolveAssemblyReference.cache
+D:\DevTemp\WpfLocalizationSample\LocalizatorHelper\bin\Debug\LocalizatorHelper.dll
+D:\DevTemp\WpfLocalizationSample\LocalizatorHelper\bin\Debug\LocalizatorHelper.pdb
+D:\DevTemp\WpfLocalizationSample\LocalizatorHelper\obj\Debug\LocalizatorHelper.dll
+D:\DevTemp\WpfLocalizationSample\LocalizatorHelper\obj\Debug\LocalizatorHelper.pdb
+D:\Lessons\WPF\009 Resources\007_LocalizationSample\LocalizatorHelper\bin\Debug\LocalizatorHelper.dll
+D:\Lessons\WPF\009 Resources\007_LocalizationSample\LocalizatorHelper\bin\Debug\LocalizatorHelper.pdb
+D:\Lessons\WPF\009 Resources\007_LocalizationSample\LocalizatorHelper\obj\Debug\LocalizatorHelper.csprojResolveAssemblyReference.cache
+D:\Lessons\WPF\009 Resources\007_LocalizationSample\LocalizatorHelper\obj\Debug\LocalizatorHelper.dll
+D:\Lessons\WPF\009 Resources\007_LocalizationSample\LocalizatorHelper\obj\Debug\LocalizatorHelper.pdb
+C:\.vstudio\Pasgen\LocalizatorHelper\bin\Debug\LocalizatorHelper.dll
+C:\.vstudio\Pasgen\LocalizatorHelper\bin\Debug\LocalizatorHelper.pdb
+C:\.vstudio\Pasgen\LocalizatorHelper\obj\Debug\LocalizatorHelper.csprojResolveAssemblyReference.cache
+C:\.vstudio\Pasgen\LocalizatorHelper\obj\Debug\LocalizatorHelper.dll
+C:\.vstudio\Pasgen\LocalizatorHelper\obj\Debug\LocalizatorHelper.pdb
