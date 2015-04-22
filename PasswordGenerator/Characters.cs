@@ -8,7 +8,7 @@ namespace PasswordGenerator
         private char[] vowels = {'a', 'e', 'i', 'o', 'u', 'y'};
         private char[] consonants = {'b', 'c', 'd', 'f', 'g', 'h', 'j', 'k', 'l', 'm', 'n', 'p', 'q', 'r', 's', 't', 'v', 'w', 'x', 'z'};
         private char[] numbers = {'0', '1', '2', '3', '4', '5', '6', '7', '8', '9'};
-        private char[] simbols ={'!', '@', '#', '$', '%', '^', '&', '*', '(', ')', '_', '-', '+', '=', '/', '>', '<', '?'};
+        private char[] simbols ={'!', '@', '#', '$', '%', '^', '&', '*', '(', ')', '-', '+', '=', '/', '>', '<', '?'};
 
 
         Random random = new Random();

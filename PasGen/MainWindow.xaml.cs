@@ -47,6 +47,22 @@ namespace PasGen
             allPasswordButtons.Add(ButtonCopyToClipboard10);
 
             passwordConditions = MainOptions.LoadFromRegistry();
+            LoadPasswordConditions();
+        }
+
+        private void LoadPasswordConditions()
+        {
+            TextBoxCharacters.Text = passwordConditions.charactersAmount.ToString();
+            SliderVowelsFrequency.Value = passwordConditions.valueVowels;
+            SliderConsonantsFrequency.Value = passwordConditions.valueConsonant;
+            SliderNumbersFrequency.Value = passwordConditions.valueNumbers;
+            SliderSimbolsFrequency.Value = passwordConditions.valueSimbols;
+            CheckBoxVowelsMustHave.IsChecked = passwordConditions.vowelsMustHave;
+            CheckBoxConsonantsMustHave.IsChecked = passwordConditions.consonantMustHave;
+            CheckBoxNumbersMustHave.IsChecked = passwordConditions.numbersMustHave;
+            CheckBoxSimbolsMustHave.IsChecked = passwordConditions.simbolsMustHave;
+            CheckBoxPronounceable.IsChecked = passwordConditions.isPronounceable;
+            CheckBoxCaps.IsChecked = passwordConditions.isContainsCapsSimbols;
         }
 
         private void SavePasswordConditions()

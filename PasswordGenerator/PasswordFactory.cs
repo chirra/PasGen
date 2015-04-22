@@ -53,9 +53,9 @@ namespace PasswordGenerator
                 Thread.Sleep(2); //random correction time
             }
 
-            foreach (var mustHaveCharacter in mustHaveSimbolGroups)
+            foreach (var characterType in mustHaveSimbolGroups)
             {
-                password[random.Next(password.Length)] = characters.GetRandomCharacterByType(mustHaveCharacter);
+                password[random.Next(password.Length)] = characters.GetRandomCharacterByType(characterType);
             }
 
             return password.ToString();
