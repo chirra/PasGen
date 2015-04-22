@@ -109,15 +109,14 @@ namespace PasGen
 
       private void ButtonSettings_Click(object sender, RoutedEventArgs e)
       {
-          //string lang="";
-            WindowSettings windowSettings = new WindowSettings(CultureInfo.CurrentCulture);
+          WindowSettings windowSettings = new WindowSettings(CultureInfo.CurrentCulture);
           if (windowSettings.ShowDialog() == true)
           {
               if (windowSettings.Lang == "RU") ResourceManagerService.ChangeLocale("ru-RU");
               else if (windowSettings.Lang == "EN") ResourceManagerService.ChangeLocale("en-US"); ;
           }
 
-          //windowSettings.ShowDialog();
+          
         }
 
 

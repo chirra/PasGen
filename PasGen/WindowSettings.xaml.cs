@@ -28,25 +28,28 @@ namespace PasGen
             InitializeComponent();
             if (currentCulture.IetfLanguageTag == "ru-RU") ComboBoxLanguage.Text = "RU";
             else if (currentCulture.IetfLanguageTag == "en-US") ComboBoxLanguage.Text = "EN";
-            //ComboBoxLanguage.SelectedIndex = ComboBoxLanguage.Items.IndexOf(currentCulture.IetfLanguageTag);
-
-
-            //ResourceManagerService.RegisterManager("MainWindowRes", MainWindowRes.ResourceManager, true);
+          
         }
 
         public string Lang { get; set; }
 
-       /* private void ButtonBase_OnClick(object sender, RoutedEventArgs e)
+        private void ButtonBase_OnClick(object sender, RoutedEventArgs e)
         {
             if (((Button)e.OriginalSource).Content.ToString() == "RU")
                 ResourceManagerService.ChangeLocale("ru-RU");
+
             else ResourceManagerService.ChangeLocale("en-EN");
-        }*/
+        }
 
         private void ButtonOk_Click(object sender, RoutedEventArgs e)
         {
             Lang = ComboBoxLanguage.Text;
             DialogResult = true;
+        }
+
+        private void ButtonCancel_Click(object sender, RoutedEventArgs e)
+        {
+            DialogResult = false;
         }
 
        
