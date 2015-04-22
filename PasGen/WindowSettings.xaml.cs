@@ -52,6 +52,34 @@ namespace PasGen
             DialogResult = false;
         }
 
-       
+        private void ButtonRu_Click(object sender, RoutedEventArgs e)
+        {
+            ResourceManagerService.ChangeLocale("ru-RU");
+        }
+
+        private void ButtonEn_Click(object sender, RoutedEventArgs e)
+        {
+            ResourceManagerService.ChangeLocale("en-US");
+        }
+
+
+        private void ComboBoxLanguage_OnSelected(object sender, RoutedEventArgs e)
+        {
+            if (((ComboBox)sender).SelectedItem.ToString() == "RU")
+                ResourceManagerService.ChangeLocale("ru-RU");
+            if (((ComboBox)sender).SelectedItem.ToString() == "EN")
+                ResourceManagerService.ChangeLocale("en-GB");
+
+        }
+
+        private void ComboBoxLanguage_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+            string text = ((ComboBoxItem)e.AddedItems[0]).Content as string;
+
+            if (text == "RU")
+                ResourceManagerService.ChangeLocale("ru-RU");
+            if (text == "EN")
+                ResourceManagerService.ChangeLocale("en-GB");
+        }
     }
 }

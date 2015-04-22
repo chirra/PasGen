@@ -117,7 +117,46 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
+  <data name="CAPS" xml:space="preserve">
+    <value>ПРОП</value>
+  </data>
+  <data name="Caption" xml:space="preserve">
+    <value>Генератор произносимых паролей</value>
+  </data>
+  <data name="CaptionClipboardButton" xml:space="preserve">
+    <value>Все в буфер</value>
+  </data>
+  <data name="CaptionGenerateButton" xml:space="preserve">
+    <value>Генерировать</value>
+  </data>
+  <data name="CaptionPasswordButton" xml:space="preserve">
+    <value>Копировать в буфер</value>
+  </data>
+  <data name="Characters" xml:space="preserve">
+    <value>Символов:</value>
+  </data>
+  <data name="Consonants" xml:space="preserve">
+    <value>Согласные:</value>
+  </data>
   <data name="Frequency" xml:space="preserve">
-    <value>Частота</value>
+    <value>Частота:</value>
+  </data>
+  <data name="Language" xml:space="preserve">
+    <value>Язык:</value>
+  </data>
+  <data name="Numbers" xml:space="preserve">
+    <value>Числа:</value>
+  </data>
+  <data name="Pronounceable" xml:space="preserve">
+    <value>Произносимый</value>
+  </data>
+  <data name="Simbols" xml:space="preserve">
+    <value>Символы:</value>
+  </data>
+  <data name="Slogan" xml:space="preserve">
+    <value>Твой личный буквопомогатель</value>
+  </data>
+  <data name="Vowels" xml:space="preserve">
+    <value>Гласные:</value>
   </data>
 </root>

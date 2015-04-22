@@ -13,35 +13,35 @@
             <ColumnDefinition Width="111*"></ColumnDefinition>
             <ColumnDefinition Width="95*"></ColumnDefinition>
         </Grid.ColumnDefinitions>
-        <TextBlock HorizontalAlignment="Left" Margin="18,15,0,0" TextWrapping="Wrap" Text="Characters:" VerticalAlignment="Top" Height="16" Width="58"/>
+        <TextBlock HorizontalAlignment="Left" Margin="18,15,0,0" TextWrapping="Wrap" Text="{Binding Source={StaticResource Helper}, Path=[MainWindowRes.Characters]}" VerticalAlignment="Top" Height="16" MaxWidth="100"/>
 
-        <CheckBox x:Name="CheckBoxPronounceable" Content="Pronounceable" HorizontalAlignment="Left" Margin="10,206,0,0" VerticalAlignment="Top" Height="15" Width="99"/>
+        <CheckBox x:Name="CheckBoxPronounceable" Content="{Binding Source={StaticResource Helper}, Path=[MainWindowRes.Pronounceable]}" HorizontalAlignment="Left" Margin="10,206,0,0" VerticalAlignment="Top" HorizontalContentAlignment="Stretch" Height="15" MaxWidth="150"/>
         <TextBox x:Name="TextBoxCharacters" HorizontalAlignment="Left" Height="19" Margin="121,13,0,0" TextWrapping="Wrap" Text="8" VerticalAlignment="Top" Width="95"/>
-        <Button x:Name="ButtonGenerate" Content="Generate" HorizontalAlignment="Left" Margin="8,237,0,0" VerticalAlignment="Top" Width="94" Click="ButtonGenerate_Click" Height="20">
+        <Button x:Name="ButtonGenerate" Content="{Binding Source={StaticResource Helper}, Path=[MainWindowRes.CaptionGenerateButton]}" HorizontalAlignment="Left" Margin="8,237,0,0" VerticalAlignment="Top" Width="94" Click="ButtonGenerate_Click" Height="20">
 
         </Button>
-        <Button x:Name="ButtonAllToClipboard" Content="All to Clipboard" HorizontalAlignment="Left" Margin="122,237,0,0" VerticalAlignment="Top" Width="94" Click="ButtonAllToClipboard_Click" Height="20">
+        <Button x:Name="ButtonAllToClipboard" Content="{Binding Source={StaticResource Helper}, Path=[MainWindowRes.CaptionClipboardButton]}" HorizontalAlignment="Left" Margin="122,237,0,0" VerticalAlignment="Top" Width="94" Click="ButtonAllToClipboard_Click" Height="20">
 
         </Button>
 
 
-        <Button x:Name="ButtonCopyToClipboard01" Content="Click for copy to clipboard" Grid.Column="1" HorizontalAlignment="Left" Margin="10,13,0,0" VerticalAlignment="Top" Width="173" Click="ButtonCopyToClipboard_Click" Height="20"/>
-        <Button x:Name="ButtonCopyToClipboard02" Content="Click for copy to clipboard" Grid.Column="1" HorizontalAlignment="Left" Margin="10,62,0,0" VerticalAlignment="Top" Width="173" Click="ButtonCopyToClipboard_Click" Height="20"/>
-        <Button x:Name="ButtonCopyToClipboard03" Content="Click for copy to clipboard" Grid.Column="1" HorizontalAlignment="Left" Margin="10,38,0,0" VerticalAlignment="Top" Width="173" Click="ButtonCopyToClipboard_Click" Height="20"/>
-        <Button x:Name="ButtonCopyToClipboard04" Content="Click for copy to clipboard" Grid.Column="1" HorizontalAlignment="Left" Margin="10,87,0,0" VerticalAlignment="Top" Width="173" Click="ButtonCopyToClipboard_Click" Height="20"/>
-        <Button x:Name="ButtonCopyToClipboard05" Content="Click for copy to clipboard" Grid.Column="1" HorizontalAlignment="Left" Margin="10,112,0,0" VerticalAlignment="Top" Width="173" Click="ButtonCopyToClipboard_Click" Height="20"/>
-        <Button x:Name="ButtonCopyToClipboard06" Content="Click for copy to clipboard" Grid.Column="1" HorizontalAlignment="Left" Margin="10,137,0,0" VerticalAlignment="Top" Width="173" Click="ButtonCopyToClipboard_Click" Height="20"/>
-        <Button x:Name="ButtonCopyToClipboard07" Content="Click for copy to clipboard" Grid.Column="1" HorizontalAlignment="Left" Margin="10,162,0,0" VerticalAlignment="Top" Width="173" Click="ButtonCopyToClipboard_Click" Height="20"/>
-        <Button x:Name="ButtonCopyToClipboard08" Content="Click for copy to clipboard" Grid.Column="1" HorizontalAlignment="Left" Margin="10,187,0,0" VerticalAlignment="Top" Width="173" Click="ButtonCopyToClipboard_Click" Height="20"/>
-        <Button x:Name="ButtonCopyToClipboard09" Content="Click for copy to clipboard" Grid.Column="1" HorizontalAlignment="Left" Margin="10,212,0,0" VerticalAlignment="Top" Width="173" Click="ButtonCopyToClipboard_Click" Height="20"/>
-        <Button x:Name="ButtonCopyToClipboard10" Content="Click for copy to clipboard" Grid.Column="1" HorizontalAlignment="Left" Margin="10,237,0,0" VerticalAlignment="Top" Width="173" Click="ButtonCopyToClipboard_Click" Height="20"/>
-        <CheckBox x:Name="CheckBoxCaps" Content="CAPS" HorizontalAlignment="Left" Margin="122,206,0,0" VerticalAlignment="Top" Height="15" Width="48"/>
+        <Button x:Name="ButtonCopyToClipboard01" Content="{Binding Source={StaticResource Helper}, Path=[MainWindowRes.CaptionPasswordButton]}" Grid.Column="1" HorizontalAlignment="Left" Margin="10,13,0,0" VerticalAlignment="Top" Width="173" Click="ButtonCopyToClipboard_Click" Height="20"/>
+        <Button x:Name="ButtonCopyToClipboard02" Content="{Binding Source={StaticResource Helper}, Path=[MainWindowRes.CaptionPasswordButton]}" Grid.Column="1" HorizontalAlignment="Left" Margin="10,62,0,0" VerticalAlignment="Top" Width="173" Click="ButtonCopyToClipboard_Click" Height="20"/>
+        <Button x:Name="ButtonCopyToClipboard03" Content="{Binding Source={StaticResource Helper}, Path=[MainWindowRes.CaptionPasswordButton]}" Grid.Column="1" HorizontalAlignment="Left" Margin="10,38,0,0" VerticalAlignment="Top" Width="173" Click="ButtonCopyToClipboard_Click" Height="20"/>
+        <Button x:Name="ButtonCopyToClipboard04" Content="{Binding Source={StaticResource Helper}, Path=[MainWindowRes.CaptionPasswordButton]}" Grid.Column="1" HorizontalAlignment="Left" Margin="10,87,0,0" VerticalAlignment="Top" Width="173" Click="ButtonCopyToClipboard_Click" Height="20"/>
+        <Button x:Name="ButtonCopyToClipboard05" Content="{Binding Source={StaticResource Helper}, Path=[MainWindowRes.CaptionPasswordButton]}" Grid.Column="1" HorizontalAlignment="Left" Margin="10,112,0,0" VerticalAlignment="Top" Width="173" Click="ButtonCopyToClipboard_Click" Height="20"/>
+        <Button x:Name="ButtonCopyToClipboard06" Content="{Binding Source={StaticResource Helper}, Path=[MainWindowRes.CaptionPasswordButton]}" Grid.Column="1" HorizontalAlignment="Left" Margin="10,137,0,0" VerticalAlignment="Top" Width="173" Click="ButtonCopyToClipboard_Click" Height="20"/>
+        <Button x:Name="ButtonCopyToClipboard07" Content="{Binding Source={StaticResource Helper}, Path=[MainWindowRes.CaptionPasswordButton]}" Grid.Column="1" HorizontalAlignment="Left" Margin="10,162,0,0" VerticalAlignment="Top" Width="173" Click="ButtonCopyToClipboard_Click" Height="20"/>
+        <Button x:Name="ButtonCopyToClipboard08" Content="{Binding Source={StaticResource Helper}, Path=[MainWindowRes.CaptionPasswordButton]}" Grid.Column="1" HorizontalAlignment="Left" Margin="10,187,0,0" VerticalAlignment="Top" Width="173" Click="ButtonCopyToClipboard_Click" Height="20"/>
+        <Button x:Name="ButtonCopyToClipboard09" Content="{Binding Source={StaticResource Helper}, Path=[MainWindowRes.CaptionPasswordButton]}" Grid.Column="1" HorizontalAlignment="Left" Margin="10,212,0,0" VerticalAlignment="Top" Width="173" Click="ButtonCopyToClipboard_Click" Height="20"/>
+        <Button x:Name="ButtonCopyToClipboard10" Content="{Binding Source={StaticResource Helper}, Path=[MainWindowRes.CaptionPasswordButton]}" Grid.Column="1" HorizontalAlignment="Left" Margin="10,237,0,0" VerticalAlignment="Top" Width="173" Click="ButtonCopyToClipboard_Click" Height="20"/>
+        <CheckBox x:Name="CheckBoxCaps" Content="{Binding Source={StaticResource Helper}, Path=[MainWindowRes.CAPS]}" HorizontalAlignment="Left" Margin="122,206,0,0" VerticalAlignment="Top" HorizontalContentAlignment="Stretch" Height="15" MaxWidth="100"/>
         <GroupBox Header="{Binding Source={StaticResource Helper}, Path=[MainWindowRes.Frequency]}" HorizontalAlignment="Left" Height="154" Margin="8,38,0,0" VerticalAlignment="Top" HorizontalContentAlignment="Stretch">
             <Grid>
-                <TextBlock HorizontalAlignment="Left" Margin="10,14,0,0" TextWrapping="Wrap" Text="Vowels:" VerticalAlignment="Top"/>
-                <TextBlock HorizontalAlignment="Left" Margin="10,44,0,0" TextWrapping="Wrap" Text="Consonants:" VerticalAlignment="Top"/>
-                <TextBlock HorizontalAlignment="Left" Margin="10,74,0,0" TextWrapping="Wrap" Text="Numbers:" VerticalAlignment="Top"/>
-                <TextBlock HorizontalAlignment="Left" Margin="10,104,0,0" TextWrapping="Wrap" Text="Simbols:" VerticalAlignment="Top"/>
+                <TextBlock HorizontalAlignment="Left" Margin="10,14,0,0" TextWrapping="Wrap" Text="{Binding Source={StaticResource Helper}, Path=[MainWindowRes.Vowels]}" VerticalAlignment="Top"/>
+                <TextBlock HorizontalAlignment="Left" Margin="10,44,0,0" TextWrapping="Wrap" Text="{Binding Source={StaticResource Helper}, Path=[MainWindowRes.Consonants]}" VerticalAlignment="Top"/>
+                <TextBlock HorizontalAlignment="Left" Margin="10,74,0,0" TextWrapping="Wrap" Text="{Binding Source={StaticResource Helper}, Path=[MainWindowRes.Numbers]}" VerticalAlignment="Top"/>
+                <TextBlock HorizontalAlignment="Left" Margin="10,104,0,0" TextWrapping="Wrap" Text="{Binding Source={StaticResource Helper}, Path=[MainWindowRes.Simbols]}" VerticalAlignment="Top"/>
 
                 <Slider x:Name="SliderVowelsFrequency" HorizontalAlignment="Left" Margin="90,7,0,0" VerticalAlignment="Top" Width="70" SmallChange="1" Value="2" AutoToolTipPlacement="TopLeft" TickPlacement="TopLeft" IsSnapToTickEnabled="True" Maximum="4"/>
                 <Slider x:Name="SliderConsonantsFrequency" HorizontalAlignment="Left" Margin="90,37,0,0" VerticalAlignment="Top" Width="70" SmallChange="1" Value="2" AutoToolTipPlacement="TopLeft" TickPlacement="TopLeft" IsSnapToTickEnabled="True" Maximum="4"/>
@@ -55,13 +55,7 @@
             </Grid>
 
         </GroupBox>
-        <!--<Menu HorizontalAlignment="Left" Height="100" Margin="23,121,0,0" VerticalAlignment="Top" Width="100" Grid.Column="1">
-            <MenuItem Header="Language">
-                <MenuItem Header="RU" Click="RuMenuItem_OnClick"></MenuItem>
-                <MenuItem Header="EN" Click="EnMenuItem_OnClick"></MenuItem>
-            </MenuItem>
-        </Menu>-->
-            
+       
         <Button x:Name="ButtonSettings" Content="{StaticResource ImageSettings}" HorizontalAlignment="Left" Margin="198,203,0,0" VerticalAlignment="Top" Width="18" Height="18" Click="ButtonSettings_Click"/>
 
 

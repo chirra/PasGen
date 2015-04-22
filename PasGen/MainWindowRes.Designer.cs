@@ -61,11 +61,128 @@ namespace PasGen {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to CAPS.
+        /// </summary>
+        internal static string CAPS {
+            get {
+                return ResourceManager.GetString("CAPS", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Pronounceable Password Generator.
+        /// </summary>
+        internal static string Caption {
+            get {
+                return ResourceManager.GetString("Caption", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to All to Clipboard.
+        /// </summary>
+        internal static string CaptionClipboardButton {
+            get {
+                return ResourceManager.GetString("CaptionClipboardButton", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Generate.
+        /// </summary>
+        internal static string CaptionGenerateButton {
+            get {
+                return ResourceManager.GetString("CaptionGenerateButton", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Copy to Clipboard.
+        /// </summary>
+        internal static string CaptionPasswordButton {
+            get {
+                return ResourceManager.GetString("CaptionPasswordButton", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Characters:.
+        /// </summary>
+        internal static string Characters {
+            get {
+                return ResourceManager.GetString("Characters", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Consonants:.
+        /// </summary>
+        internal static string Consonants {
+            get {
+                return ResourceManager.GetString("Consonants", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Frequency.
         /// </summary>
         internal static string Frequency {
             get {
                 return ResourceManager.GetString("Frequency", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Язык.
+        /// </summary>
+        internal static string Language {
+            get {
+                return ResourceManager.GetString("Language", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Numbers:.
+        /// </summary>
+        internal static string Numbers {
+            get {
+                return ResourceManager.GetString("Numbers", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Pronounceable.
+        /// </summary>
+        internal static string Pronounceable {
+            get {
+                return ResourceManager.GetString("Pronounceable", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Simbols:.
+        /// </summary>
+        internal static string Simbols {
+            get {
+                return ResourceManager.GetString("Simbols", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Your Personal Letter Helper.
+        /// </summary>
+        internal static string Slogan {
+            get {
+                return ResourceManager.GetString("Slogan", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Vovels:.
+        /// </summary>
+        internal static string Vowels {
+            get {
+                return ResourceManager.GetString("Vowels", resourceCulture);
             }
         }
     }

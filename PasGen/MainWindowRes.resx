@@ -117,7 +117,46 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
+  <data name="CAPS" xml:space="preserve">
+    <value>CAPS</value>
+  </data>
+  <data name="Caption" xml:space="preserve">
+    <value>Pronounceable Password Generator</value>
+  </data>
+  <data name="CaptionClipboardButton" xml:space="preserve">
+    <value>All to Clipboard</value>
+  </data>
+  <data name="CaptionGenerateButton" xml:space="preserve">
+    <value>Generate</value>
+  </data>
+  <data name="CaptionPasswordButton" xml:space="preserve">
+    <value>Copy to Clipboard</value>
+  </data>
+  <data name="Characters" xml:space="preserve">
+    <value>Characters:</value>
+  </data>
+  <data name="Consonants" xml:space="preserve">
+    <value>Consonants:</value>
+  </data>
   <data name="Frequency" xml:space="preserve">
     <value>Frequency</value>
+  </data>
+  <data name="Language" xml:space="preserve">
+    <value>Язык</value>
+  </data>
+  <data name="Numbers" xml:space="preserve">
+    <value>Numbers:</value>
+  </data>
+  <data name="Pronounceable" xml:space="preserve">
+    <value>Pronounceable</value>
+  </data>
+  <data name="Simbols" xml:space="preserve">
+    <value>Simbols:</value>
+  </data>
+  <data name="Slogan" xml:space="preserve">
+    <value>Your Personal Letter Helper</value>
+  </data>
+  <data name="Vowels" xml:space="preserve">
+    <value>Vovels:</value>
   </data>
 </root>

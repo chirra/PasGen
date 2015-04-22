@@ -8,9 +8,9 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-[assembly: System.Windows.Resources.AssemblyAssociatedContentFileAttribute("images/asterisk.ico")]
-[assembly: System.Windows.Resources.AssemblyAssociatedContentFileAttribute("images/asterisk.png")]
-[assembly: System.Windows.Resources.AssemblyAssociatedContentFileAttribute("images/settings.ico")]
-[assembly: System.Windows.Resources.AssemblyAssociatedContentFileAttribute("images/settings.png")]
+[assembly: System.Windows.Resources.AssemblyAssociatedContentFileAttribute("resources/images/asterisk.ico")]
+[assembly: System.Windows.Resources.AssemblyAssociatedContentFileAttribute("resources/images/asterisk.png")]
+[assembly: System.Windows.Resources.AssemblyAssociatedContentFileAttribute("resources/images/settings.ico")]
+[assembly: System.Windows.Resources.AssemblyAssociatedContentFileAttribute("resources/images/settings.png")]
 
 
