@@ -16,7 +16,7 @@
         <TextBlock HorizontalAlignment="Left" Margin="18,15,0,0" TextWrapping="Wrap" Text="{Binding Source={StaticResource Helper}, Path=[MainWindowRes.Characters]}" VerticalAlignment="Top" Height="16" MaxWidth="100"/>
 
         <CheckBox x:Name="CheckBoxPronounceable" Content="{Binding Source={StaticResource Helper}, Path=[MainWindowRes.Pronounceable]}" HorizontalAlignment="Left" Margin="10,206,0,0" VerticalAlignment="Top" HorizontalContentAlignment="Stretch" Height="15" MaxWidth="150"/>
-        <TextBox x:Name="TextBoxCharacters" HorizontalAlignment="Left" Height="19" Margin="121,13,0,0" TextWrapping="Wrap" Text="8" VerticalAlignment="Top" Width="95"/>
+        <TextBox x:Name="TextBoxCharacters" HorizontalAlignment="Left" Height="19" Margin="121,12,0,0" TextWrapping="Wrap" Text="8" VerticalAlignment="Top" Width="95"/>
         <Button x:Name="ButtonGenerate" Content="{Binding Source={StaticResource Helper}, Path=[MainWindowRes.CaptionGenerateButton]}" HorizontalAlignment="Left" Margin="8,237,0,0" VerticalAlignment="Top" Width="94" Click="ButtonGenerate_Click" Height="20">
 
         </Button>
@@ -25,9 +25,9 @@
         </Button>
 
 
-        <Button x:Name="ButtonCopyToClipboard01" Content="{Binding Source={StaticResource Helper}, Path=[MainWindowRes.CaptionPasswordButton]}" Grid.Column="1" HorizontalAlignment="Left" Margin="10,13,0,0" VerticalAlignment="Top" Width="173" Click="ButtonCopyToClipboard_Click" Height="20"/>
-        <Button x:Name="ButtonCopyToClipboard02" Content="{Binding Source={StaticResource Helper}, Path=[MainWindowRes.CaptionPasswordButton]}" Grid.Column="1" HorizontalAlignment="Left" Margin="10,62,0,0" VerticalAlignment="Top" Width="173" Click="ButtonCopyToClipboard_Click" Height="20"/>
-        <Button x:Name="ButtonCopyToClipboard03" Content="{Binding Source={StaticResource Helper}, Path=[MainWindowRes.CaptionPasswordButton]}" Grid.Column="1" HorizontalAlignment="Left" Margin="10,38,0,0" VerticalAlignment="Top" Width="173" Click="ButtonCopyToClipboard_Click" Height="20"/>
+        <Button x:Name="ButtonCopyToClipboard01" Content="{Binding Source={StaticResource Helper}, Path=[MainWindowRes.CaptionPasswordButton]}" Grid.Column="1" HorizontalAlignment="Left" Margin="10,12,0,0" VerticalAlignment="Top" Width="173" Click="ButtonCopyToClipboard_Click" Height="20"/>
+        <Button x:Name="ButtonCopyToClipboard02" Content="{Binding Source={StaticResource Helper}, Path=[MainWindowRes.CaptionPasswordButton]}" Grid.Column="1" HorizontalAlignment="Left" Margin="10,37,0,0" VerticalAlignment="Top" Width="173" Click="ButtonCopyToClipboard_Click" Height="20"/>
+        <Button x:Name="ButtonCopyToClipboard03" Content="{Binding Source={StaticResource Helper}, Path=[MainWindowRes.CaptionPasswordButton]}" Grid.Column="1" HorizontalAlignment="Left" Margin="10,62,0,0" VerticalAlignment="Top" Width="173" Click="ButtonCopyToClipboard_Click" Height="20"/>
         <Button x:Name="ButtonCopyToClipboard04" Content="{Binding Source={StaticResource Helper}, Path=[MainWindowRes.CaptionPasswordButton]}" Grid.Column="1" HorizontalAlignment="Left" Margin="10,87,0,0" VerticalAlignment="Top" Width="173" Click="ButtonCopyToClipboard_Click" Height="20"/>
         <Button x:Name="ButtonCopyToClipboard05" Content="{Binding Source={StaticResource Helper}, Path=[MainWindowRes.CaptionPasswordButton]}" Grid.Column="1" HorizontalAlignment="Left" Margin="10,112,0,0" VerticalAlignment="Top" Width="173" Click="ButtonCopyToClipboard_Click" Height="20"/>
         <Button x:Name="ButtonCopyToClipboard06" Content="{Binding Source={StaticResource Helper}, Path=[MainWindowRes.CaptionPasswordButton]}" Grid.Column="1" HorizontalAlignment="Left" Margin="10,137,0,0" VerticalAlignment="Top" Width="173" Click="ButtonCopyToClipboard_Click" Height="20"/>

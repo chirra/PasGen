@@ -83,17 +83,25 @@ namespace PasGen
 
         private void InterfaceToPasswordConditions()
         {
-            passwordConditions.charactersAmount = Int32.Parse(TextBoxCharacters.Text);
-            passwordConditions.valueVowels = (int) SliderVowelsFrequency.Value;
-            passwordConditions.valueConsonants = (int) SliderConsonantsFrequency.Value;
-            passwordConditions.valueNumbers = (int) SliderNumbersFrequency.Value;
-            passwordConditions.valueSimbols = (int) SliderSimbolsFrequency.Value;
-            passwordConditions.vowelsMustHave = (bool) CheckBoxVowelsMustHave.IsChecked;
-            passwordConditions.consonantsMustHave = (bool) CheckBoxConsonantsMustHave.IsChecked;
-            passwordConditions.numbersMustHave = (bool) CheckBoxNumbersMustHave.IsChecked;
-            passwordConditions.simbolsMustHave = (bool) CheckBoxSimbolsMustHave.IsChecked;
-            passwordConditions.isPronounceable = (bool) CheckBoxPronounceable.IsChecked;
-            passwordConditions.isContainsCapsSimbols = (bool) CheckBoxCaps.IsChecked;
+
+            try
+            {
+                passwordConditions.charactersAmount = Int32.Parse(TextBoxCharacters.Text);
+                passwordConditions.valueVowels = (int) SliderVowelsFrequency.Value;
+                passwordConditions.valueConsonants = (int) SliderConsonantsFrequency.Value;
+                passwordConditions.valueNumbers = (int) SliderNumbersFrequency.Value;
+                passwordConditions.valueSimbols = (int) SliderSimbolsFrequency.Value;
+                passwordConditions.vowelsMustHave = (bool) CheckBoxVowelsMustHave.IsChecked;
+                passwordConditions.consonantsMustHave = (bool) CheckBoxConsonantsMustHave.IsChecked;
+                passwordConditions.numbersMustHave = (bool) CheckBoxNumbersMustHave.IsChecked;
+                passwordConditions.simbolsMustHave = (bool) CheckBoxSimbolsMustHave.IsChecked;
+                passwordConditions.isPronounceable = (bool) CheckBoxPronounceable.IsChecked;
+                passwordConditions.isContainsCapsSimbols = (bool) CheckBoxCaps.IsChecked;
+            }
+            catch (Exception e)
+            {
+                MessageBox.Show(e.Message, "PasGen Error");
+            }
         }
 
 
@@ -111,7 +119,10 @@ namespace PasGen
         private void ButtonGenerate_Click(object sender, RoutedEventArgs e)
         {
             foreach (var button in allPasswordButtons)
+            {
                 button.Background = Brushes.LightGray;
+                button.FontWeight = FontWeights.Normal;
+            }
 
             InterfaceToPasswordConditions();
             Action action = new Action(GetPassword);
@@ -128,7 +139,8 @@ namespace PasGen
 
         private void ButtonCopyToClipboard_Click(object sender, RoutedEventArgs e)
         {
-           ((Button) e.OriginalSource).Background = Brushes.Orange;
+            ((Button) e.OriginalSource).Background = Brushes.Orange;
+            ((Button) e.OriginalSource).FontWeight = FontWeights.Bold;
             CommandCopyToClipboard(((Button)e.OriginalSource).Content.ToString());
         }
 
