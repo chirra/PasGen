@@ -12,7 +12,7 @@ namespace PasswordGenerator
         protected override double[] GetProbabilityVector()
         {
             double v = (double)passwordConditions.valueVowels;
-            double c = (double)passwordConditions.valueConsonant;
+            double c = (double)passwordConditions.valueConsonants;
             double n = (double)passwordConditions.valueNumbers;
             double s = (double)passwordConditions.valueSimbols;
 

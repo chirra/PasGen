@@ -30,7 +30,7 @@ namespace PasswordGenerator
 
             List<CharactersType> mustHaveSimbolGroups = new List<CharactersType>();
             if (passwordConditions.vowelsMustHave) mustHaveSimbolGroups.Add(CharactersType.Vowels);
-            if (passwordConditions.consonantMustHave) mustHaveSimbolGroups.Add(CharactersType.Consonants);
+            if (passwordConditions.consonantsMustHave) mustHaveSimbolGroups.Add(CharactersType.Consonants);
             if (passwordConditions.numbersMustHave) mustHaveSimbolGroups.Add(CharactersType.Numbers);
             if (passwordConditions.simbolsMustHave) mustHaveSimbolGroups.Add(CharactersType.Simbols);
            

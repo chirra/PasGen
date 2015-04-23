@@ -8,7 +8,7 @@ namespace PasswordGenerator
         protected override double[] GetProbabilityVector()
         {
             var v = (double)passwordConditions.valueVowels;
-            var c = (double)passwordConditions.valueConsonant;
+            var c = (double)passwordConditions.valueConsonants;
             var n = (double)passwordConditions.valueNumbers;
             var s = (double)passwordConditions.valueSimbols;
 

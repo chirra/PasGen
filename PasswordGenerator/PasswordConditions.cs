@@ -11,12 +11,12 @@ namespace PasswordGenerator
         public int charactersAmount;
 
         public int valueVowels;
-        public int valueConsonant;
+        public int valueConsonants;
         public int valueNumbers;
         public int valueSimbols;
 
         public bool vowelsMustHave;
-        public bool consonantMustHave;
+        public bool consonantsMustHave;
         public bool numbersMustHave;
         public bool simbolsMustHave;
 

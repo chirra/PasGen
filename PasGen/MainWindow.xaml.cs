@@ -5,6 +5,7 @@ using System.Globalization;
 using System.Linq;
 using System.Resources;
 using System.Text;
+using System.Threading;
 using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Controls;
@@ -31,10 +32,14 @@ namespace PasGen
         List<Button> allPasswordButtons = new List<Button>();
         private PasswordConditions passwordConditions = new PasswordConditions();
 
+
         public MainWindow()
         {
             InitializeComponent();
+
+            // Localization
             ResourceManagerService.RegisterManager("MainWindowRes", MainWindowRes.ResourceManager, true);
+
             allPasswordButtons.Add(ButtonCopyToClipboard01);
             allPasswordButtons.Add(ButtonCopyToClipboard02);
             allPasswordButtons.Add(ButtonCopyToClipboard03);
@@ -50,47 +55,63 @@ namespace PasGen
             LoadPasswordConditions();
         }
 
+
         private void LoadPasswordConditions()
         {
             TextBoxCharacters.Text = passwordConditions.charactersAmount.ToString();
             SliderVowelsFrequency.Value = passwordConditions.valueVowels;
-            SliderConsonantsFrequency.Value = passwordConditions.valueConsonant;
+            SliderConsonantsFrequency.Value = passwordConditions.valueConsonants;
             SliderNumbersFrequency.Value = passwordConditions.valueNumbers;
             SliderSimbolsFrequency.Value = passwordConditions.valueSimbols;
             CheckBoxVowelsMustHave.IsChecked = passwordConditions.vowelsMustHave;
-            CheckBoxConsonantsMustHave.IsChecked = passwordConditions.consonantMustHave;
+            CheckBoxConsonantsMustHave.IsChecked = passwordConditions.consonantsMustHave;
             CheckBoxNumbersMustHave.IsChecked = passwordConditions.numbersMustHave;
             CheckBoxSimbolsMustHave.IsChecked = passwordConditions.simbolsMustHave;
             CheckBoxPronounceable.IsChecked = passwordConditions.isPronounceable;
             CheckBoxCaps.IsChecked = passwordConditions.isContainsCapsSimbols;
         }
 
+
         private void SavePasswordConditions()
         {
             passwordConditions.charactersAmount = Int32.Parse(TextBoxCharacters.Text);
             passwordConditions.valueVowels = (int) SliderVowelsFrequency.Value;
-            passwordConditions.valueConsonant = (int) SliderConsonantsFrequency.Value;
+            passwordConditions.valueConsonants = (int) SliderConsonantsFrequency.Value;
             passwordConditions.valueNumbers = (int) SliderNumbersFrequency.Value;
             passwordConditions.valueSimbols = (int) SliderSimbolsFrequency.Value;
             passwordConditions.vowelsMustHave = (bool) CheckBoxVowelsMustHave.IsChecked;
-            passwordConditions.consonantMustHave = (bool) CheckBoxConsonantsMustHave.IsChecked;
+            passwordConditions.consonantsMustHave = (bool) CheckBoxConsonantsMustHave.IsChecked;
             passwordConditions.numbersMustHave = (bool) CheckBoxNumbersMustHave.IsChecked;
             passwordConditions.simbolsMustHave = (bool) CheckBoxSimbolsMustHave.IsChecked;
             passwordConditions.isPronounceable = (bool) CheckBoxPronounceable.IsChecked;
             passwordConditions.isContainsCapsSimbols = (bool) CheckBoxCaps.IsChecked;
         }
 
-        private void ButtonGenerate_Click(object sender, RoutedEventArgs e)
+
+        private void GetPassword()
         {
-            SavePasswordConditions();
-            PasswordFactory password  = new PasswordFactory(passwordConditions);
+            PasswordFactory password = new PasswordFactory(passwordConditions);
             foreach (var button in allPasswordButtons)
             {
-                button.Content = password.GetPassword();
-                button.Background = Brushes.LightGray;
+                string s = password.GetPassword();
+                Dispatcher.BeginInvoke(new ThreadStart(delegate { button.Content = s; }));
             }
-
+           
+            
         }
+
+
+        private void ButtonGenerate_Click(object sender, RoutedEventArgs e)
+        {
+            foreach (var button in allPasswordButtons)
+                button.Background = Brushes.LightGray;
+
+            SavePasswordConditions();
+            Action action = new Action(GetPassword);
+            Task task = new Task(action);
+            task.Start();
+        }
+
 
         private void Window_Closing(object sender, System.ComponentModel.CancelEventArgs e)
         {
@@ -112,7 +133,6 @@ namespace PasGen
         }
 
        
-
         private void ButtonAllToClipboard_Click(object sender, RoutedEventArgs e)
         {
             string result="";
@@ -131,27 +151,8 @@ namespace PasGen
               if (windowSettings.Lang == "RU") ResourceManagerService.ChangeLocale("ru-RU");
               else if (windowSettings.Lang == "EN") ResourceManagerService.ChangeLocale("en-US"); ;
           }
+      }
 
-          
-        }
-
-
-        private void ButtonBase_OnClick(object sender, RoutedEventArgs e)
-        {
-            if (((Button)e.OriginalSource).Content.ToString() == "RU")
-                ResourceManagerService.ChangeLocale("ru-RU");
-            else ResourceManagerService.ChangeLocale("en-US"); ;
-        }
-
-        private void RuMenuItem_OnClick(object sender, RoutedEventArgs e)
-        {
-            ResourceManagerService.ChangeLocale("ru-RU");
-        }
-
-        private void EnMenuItem_OnClick(object sender, RoutedEventArgs e)
-        {
-            ResourceManagerService.ChangeLocale("en-US");
-        }
 
     }
 }
