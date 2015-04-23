@@ -31,13 +31,22 @@ namespace PasGen
     {
         List<Button> allPasswordButtons = new List<Button>();
         private PasswordConditions passwordConditions = new PasswordConditions();
-
+        //Dictionary<string, string> settings = MainOptions.LoadSettingsFromRegistry(); 
 
         public MainWindow()
         {
             InitializeComponent();
 
             // Localization
+            try
+            {
+                Thread.CurrentThread.CurrentCulture = new CultureInfo(ConfigurationManager.AppSettings["Locale"]);
+            }
+            catch (Exception)
+            {
+                Console.WriteLine("Error reading app settings");
+            }
+
             ResourceManagerService.RegisterManager("MainWindowRes", MainWindowRes.ResourceManager, true);
 
             allPasswordButtons.Add(ButtonCopyToClipboard01);
@@ -52,11 +61,11 @@ namespace PasGen
             allPasswordButtons.Add(ButtonCopyToClipboard10);
 
             passwordConditions = MainOptions.LoadFromRegistry();
-            LoadPasswordConditions();
+            PasswordConditionsToInterface();
         }
 
 
-        private void LoadPasswordConditions()
+        private void PasswordConditionsToInterface()
         {
             TextBoxCharacters.Text = passwordConditions.charactersAmount.ToString();
             SliderVowelsFrequency.Value = passwordConditions.valueVowels;
@@ -72,7 +81,7 @@ namespace PasGen
         }
 
 
-        private void SavePasswordConditions()
+        private void InterfaceToPasswordConditions()
         {
             passwordConditions.charactersAmount = Int32.Parse(TextBoxCharacters.Text);
             passwordConditions.valueVowels = (int) SliderVowelsFrequency.Value;
@@ -96,8 +105,6 @@ namespace PasGen
                 string s = password.GetPassword();
                 Dispatcher.BeginInvoke(new ThreadStart(delegate { button.Content = s; }));
             }
-           
-            
         }
 
 
@@ -106,17 +113,10 @@ namespace PasGen
             foreach (var button in allPasswordButtons)
                 button.Background = Brushes.LightGray;
 
-            SavePasswordConditions();
+            InterfaceToPasswordConditions();
             Action action = new Action(GetPassword);
             Task task = new Task(action);
             task.Start();
-        }
-
-
-        private void Window_Closing(object sender, System.ComponentModel.CancelEventArgs e)
-        {
-            SavePasswordConditions();
-            MainOptions.SaveToRegistry(passwordConditions);
         }
 
 
@@ -143,15 +143,24 @@ namespace PasGen
         }
 
 
-      private void ButtonSettings_Click(object sender, RoutedEventArgs e)
-      {
-          WindowSettings windowSettings = new WindowSettings(CultureInfo.CurrentCulture);
-          if (windowSettings.ShowDialog() == true)
-          {
-              if (windowSettings.Lang == "RU") ResourceManagerService.ChangeLocale("ru-RU");
-              else if (windowSettings.Lang == "EN") ResourceManagerService.ChangeLocale("en-US"); ;
-          }
-      }
+        private void ButtonSettings_Click(object sender, RoutedEventArgs e)
+        {
+            WindowSettings windowSettings = new WindowSettings(CultureInfo.CurrentCulture);
+            windowSettings.ShowDialog();
+        }
+
+
+        private void Window_Closing(object sender, System.ComponentModel.CancelEventArgs e)
+        {
+            InterfaceToPasswordConditions();
+            MainOptions.SaveToRegistry(passwordConditions);
+
+            //Save Localization settings
+            Configuration configuration = ConfigurationManager.OpenExeConfiguration(ConfigurationUserLevel.None);
+            configuration.AppSettings.Settings["Locale"].Value = CultureInfo.CurrentCulture.IetfLanguageTag;
+            configuration.Save();
+            ConfigurationManager.RefreshSection("appSettings");
+        }
 
 
     }

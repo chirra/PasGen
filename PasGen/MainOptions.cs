@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Globalization;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -35,9 +36,8 @@ namespace PasGen
 
                 MessageBox.Show("Can't save settings to registry", "PasGen Error");
             }
-
-
         }
+
 
         internal static PasswordConditions LoadFromRegistry()
         {
@@ -76,6 +76,22 @@ namespace PasGen
             return passwordConditions;
         }
 
+        internal static Dictionary<string, string> LoadSettingsFromRegistry()
+        {
+            Dictionary<string, string> result = new Dictionary<string, string>();
+            try
+            {
+                RegistryKey myKey = Registry.CurrentUser.OpenSubKey("Software").OpenSubKey("PasGen");
+                result["locale"] = myKey.GetValue("Locale").ToString();
+                myKey.Close();
+            }
+            catch (Exception)
+            {
+                result["locale"] = CultureInfo.CurrentCulture.IetfLanguageTag;
+            }
+
+            return result;
+        }
      
     }
 }

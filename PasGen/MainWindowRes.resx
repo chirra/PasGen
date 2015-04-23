@@ -142,7 +142,7 @@
     <value>Frequency</value>
   </data>
   <data name="Language" xml:space="preserve">
-    <value>Язык</value>
+    <value>Language:</value>
   </data>
   <data name="Numbers" xml:space="preserve">
     <value>Numbers:</value>

@@ -133,7 +133,7 @@ namespace PasGen {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Язык.
+        ///   Looks up a localized string similar to Language:.
         /// </summary>
         internal static string Language {
             get {
