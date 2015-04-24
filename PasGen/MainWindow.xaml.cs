@@ -30,9 +30,9 @@ namespace PasGen
     public partial class MainWindow : Window
     {
         List<Button> allPasswordButtons = new List<Button>();
-        private PasswordConditions passwordConditions = new PasswordConditions();
-        //Dictionary<string, string> settings = MainOptions.LoadSettingsFromRegistry(); 
-
+        private PasswordConditions passwordConditions = MainOptions.LoadPasswordConditionsFromRegistry();
+        private Settings settings = MainOptions.LoadSettingsFromRegistry();
+        
         public MainWindow()
         {
             InitializeComponent();
@@ -40,11 +40,11 @@ namespace PasGen
             // Localization
             try
             {
-                Thread.CurrentThread.CurrentCulture = new CultureInfo(ConfigurationManager.AppSettings["Locale"]);
+                Thread.CurrentThread.CurrentCulture = new CultureInfo(settings.Locale);
             }
-            catch (Exception)
+            catch (Exception e)
             {
-                Console.WriteLine("Error reading app settings");
+                MessageBox.Show(e.Message, "PasGen Error");
             }
 
             ResourceManagerService.RegisterManager("MainWindowRes", MainWindowRes.ResourceManager, true);
@@ -60,7 +60,6 @@ namespace PasGen
             allPasswordButtons.Add(ButtonCopyToClipboard09);
             allPasswordButtons.Add(ButtonCopyToClipboard10);
 
-            passwordConditions = MainOptions.LoadFromRegistry();
             PasswordConditionsToInterface();
         }
 
@@ -165,13 +164,10 @@ namespace PasGen
         private void Window_Closing(object sender, System.ComponentModel.CancelEventArgs e)
         {
             InterfaceToPasswordConditions();
-            MainOptions.SaveToRegistry(passwordConditions);
+            MainOptions.SavePasswordConditionsToRegistry(passwordConditions);
 
-            //Save Localization settings
-            Configuration configuration = ConfigurationManager.OpenExeConfiguration(ConfigurationUserLevel.None);
-            configuration.AppSettings.Settings["Locale"].Value = CultureInfo.CurrentCulture.IetfLanguageTag;
-            configuration.Save();
-            ConfigurationManager.RefreshSection("appSettings");
+            settings.Locale = CultureInfo.CurrentCulture.TextInfo.CultureName;
+            MainOptions.SaveSettingsToRegistry(settings);
         }
 
 

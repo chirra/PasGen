@@ -23,3 +23,8 @@ C:\.vstudio\Pasgen\PasGen\obj\Debug\PasGen.MainWindowRes.ru.resources
 C:\.vstudio\Pasgen\PasGen\obj\Debug\ru\PasGen.resources.dll
 C:\.vstudio\Pasgen\PasGen\bin\Debug\LocalizatorHelper.dll
 C:\.vstudio\Pasgen\PasGen\bin\Debug\LocalizatorHelper.pdb
+C:\.vstudio\Pasgen\PasGen\bin\Debug\PasGen.exe.manifest
+C:\.vstudio\Pasgen\PasGen\bin\Debug\PasGen.application
+C:\.vstudio\Pasgen\PasGen\obj\Debug\PasGen.TrustInfo.xml
+C:\.vstudio\Pasgen\PasGen\obj\Debug\PasGen.exe.manifest
+C:\.vstudio\Pasgen\PasGen\obj\Debug\PasGen.application

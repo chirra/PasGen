@@ -1,0 +1,5 @@
+C:\.vstudio\Pasgen\LocalizatorHelper\bin\Release\LocalizatorHelper.dll
+C:\.vstudio\Pasgen\LocalizatorHelper\bin\Release\LocalizatorHelper.pdb
+C:\.vstudio\Pasgen\LocalizatorHelper\obj\Release\LocalizatorHelper.dll
+C:\.vstudio\Pasgen\LocalizatorHelper\obj\Release\LocalizatorHelper.pdb
+C:\.vstudio\Pasgen\LocalizatorHelper\obj\Release\LocalizatorHelper.csprojResolveAssemblyReference.cache

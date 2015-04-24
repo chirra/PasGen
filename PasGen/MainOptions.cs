@@ -1,9 +1,5 @@
 ﻿using System;
-using System.Collections.Generic;
 using System.Globalization;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows;
 using Microsoft.Win32;
 using PasswordGenerator;
@@ -12,7 +8,7 @@ namespace PasGen
 {
     internal static class MainOptions
     {
-        internal static void SaveToRegistry(PasswordConditions passwordConditions)
+        internal static void SavePasswordConditionsToRegistry(PasswordConditions passwordConditions)
         {
             try
             {
@@ -39,7 +35,7 @@ namespace PasGen
         }
 
 
-        internal static PasswordConditions LoadFromRegistry()
+        internal static PasswordConditions LoadPasswordConditionsFromRegistry()
         {
             PasswordConditions passwordConditions;
             try
@@ -76,22 +72,38 @@ namespace PasGen
             return passwordConditions;
         }
 
-        internal static Dictionary<string, string> LoadSettingsFromRegistry()
+        internal static Settings LoadSettingsFromRegistry()
         {
-            Dictionary<string, string> result = new Dictionary<string, string>();
+            Settings result;
             try
             {
+
                 RegistryKey myKey = Registry.CurrentUser.OpenSubKey("Software").OpenSubKey("PasGen");
-                result["locale"] = myKey.GetValue("Locale").ToString();
+                result.Locale = myKey.GetValue("Locale").ToString();
                 myKey.Close();
             }
             catch (Exception)
             {
-                result["locale"] = CultureInfo.CurrentCulture.IetfLanguageTag;
+                result.Locale = CultureInfo.CurrentCulture.TextInfo.CultureName;
             }
-
             return result;
         }
+
+
+        internal static void SaveSettingsToRegistry(Settings settings)
+        {
+            try
+            {
+                RegistryKey myKey = Registry.CurrentUser.CreateSubKey("Software\\PasGen");
+                myKey.SetValue("Locale", settings.Locale);
+                myKey.Close();
+            }
+            catch (Exception)
+            {
+                MessageBox.Show("Can't save settings to registry", "PasGen Error");
+            }
+        }
+
      
     }
 }
