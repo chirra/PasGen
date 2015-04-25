@@ -4,13 +4,16 @@ namespace PasswordGenerator
 {
     class CharacterGeneratorPronounceable : CharacterGeneratorAbstract
     {
-
+        /// <summary>
+        /// Return probabilkity vector, depends on the current character type and conditions of the password
+        /// </summary>
+        /// <returns></returns>
         protected override double[] GetProbabilityVector()
         {
-            var v = (double)passwordConditions.valueVowels;
-            var c = (double)passwordConditions.valueConsonants;
-            var n = (double)passwordConditions.valueNumbers;
-            var s = (double)passwordConditions.valueSimbols;
+            var v = (double)PasswordConditions.valueVowels;
+            var c = (double)PasswordConditions.valueConsonants;
+            var n = (double)PasswordConditions.valueNumbers;
+            var s = (double)PasswordConditions.valueSimbols;
 
 
             double[][] probabilityMatrix =
@@ -28,11 +31,13 @@ namespace PasswordGenerator
         /// <summary>
         /// Constructor
         /// </summary>
+        /// <param name="passwordConditions"></param>
         /// <param name="currentCharacterType"></param>
         public CharacterGeneratorPronounceable(PasswordConditions passwordConditions, CharactersType currentCharacterType)
         {
-            this.passwordConditions = passwordConditions;
-            CurrentCharacterType = currentCharacterType;
+            // fields of the base abstract class
+            this.PasswordConditions = passwordConditions;
+            this.CurrentCharacterType = currentCharacterType;
         }
     }
 }

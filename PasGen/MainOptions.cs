@@ -8,33 +8,10 @@ namespace PasGen
 {
     internal static class MainOptions
     {
-        internal static void SavePasswordConditionsToRegistry(PasswordConditions passwordConditions)
-        {
-            try
-            {
-                RegistryKey myKey = Registry.CurrentUser.CreateSubKey("Software\\PasGen");
-                myKey.SetValue("CharactersAmount", passwordConditions.charactersAmount.ToString());
-                myKey.SetValue("ValueVowels", passwordConditions.valueVowels.ToString());
-                myKey.SetValue("ValueConsonant", passwordConditions.valueConsonants.ToString());
-                myKey.SetValue("ValueNumbers", passwordConditions.valueNumbers.ToString());
-                myKey.SetValue("ValueSimbols", passwordConditions.valueSimbols.ToString());
-
-                myKey.SetValue("VowelsMustHave", passwordConditions.vowelsMustHave.ToString());
-                myKey.SetValue("ConsonantMustHave", passwordConditions.consonantsMustHave.ToString());
-                myKey.SetValue("NumbersMustHave", passwordConditions.numbersMustHave.ToString());
-                myKey.SetValue("SimbolsMustHave", passwordConditions.simbolsMustHave.ToString());
-                myKey.SetValue("IsPronounceable", passwordConditions.isPronounceable.ToString());
-                myKey.SetValue("IsContainsCapsSimbols", passwordConditions.isContainsCapsSimbols.ToString());
-                myKey.Close();
-            }
-            catch (Exception)
-            {
-
-                MessageBox.Show("Can't save settings to registry", "PasGen Error");
-            }
-        }
-
-
+        /// <summary>
+        /// Load password conditions from registry or set to default values
+        /// </summary>
+        /// <returns></returns>
         internal static PasswordConditions LoadPasswordConditionsFromRegistry()
         {
             PasswordConditions passwordConditions;
@@ -72,7 +49,42 @@ namespace PasGen
             return passwordConditions;
         }
 
-        internal static Settings LoadSettingsFromRegistry()
+
+        /// <summary>
+        /// Save password conditions to registry
+        /// </summary>
+        /// <param name="passwordConditions"></param>
+        internal static void SavePasswordConditionsToRegistry(PasswordConditions passwordConditions)
+        {
+            try
+            {
+                RegistryKey myKey = Registry.CurrentUser.CreateSubKey("Software\\PasGen");
+                myKey.SetValue("CharactersAmount", passwordConditions.charactersAmount.ToString());
+                myKey.SetValue("ValueVowels", passwordConditions.valueVowels.ToString());
+                myKey.SetValue("ValueConsonant", passwordConditions.valueConsonants.ToString());
+                myKey.SetValue("ValueNumbers", passwordConditions.valueNumbers.ToString());
+                myKey.SetValue("ValueSimbols", passwordConditions.valueSimbols.ToString());
+
+                myKey.SetValue("VowelsMustHave", passwordConditions.vowelsMustHave.ToString());
+                myKey.SetValue("ConsonantMustHave", passwordConditions.consonantsMustHave.ToString());
+                myKey.SetValue("NumbersMustHave", passwordConditions.numbersMustHave.ToString());
+                myKey.SetValue("SimbolsMustHave", passwordConditions.simbolsMustHave.ToString());
+                myKey.SetValue("IsPronounceable", passwordConditions.isPronounceable.ToString());
+                myKey.SetValue("IsContainsCapsSimbols", passwordConditions.isContainsCapsSimbols.ToString());
+                myKey.Close();
+            }
+            catch (Exception)
+            {
+
+                MessageBox.Show("Can't save settings to registry", "PasGen Error");
+            }
+        }
+
+        /// <summary>
+        /// Load app settings from registry or set to default values
+        /// </summary>
+        /// <returns></returns>
+      internal static Settings LoadSettingsFromRegistry()
         {
             Settings result;
             try
@@ -89,7 +101,10 @@ namespace PasGen
             return result;
         }
 
-
+        /// <summary>
+        /// Save app settings to registry
+        /// </summary>
+        /// <param name="settings"></param>
         internal static void SaveSettingsToRegistry(Settings settings)
         {
             try

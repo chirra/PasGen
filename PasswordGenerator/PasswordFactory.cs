@@ -24,36 +24,40 @@ namespace PasswordGenerator
         {
             StringBuilder password = new StringBuilder();
             
-            CharactersType currentCharacterType = CharactersType.Consonants;
-            if (password.Length>0)
-                currentCharacterType = characters.GetCharacterType(password[password.Length-1]);
+            CharactersType currentCharacterType = random.Next(2) == 1 ? CharactersType.Vowels : CharactersType.Consonants;
+            
 
-            List<CharactersType> mustHaveSimbolGroups = new List<CharactersType>();
-            if (passwordConditions.vowelsMustHave) mustHaveSimbolGroups.Add(CharactersType.Vowels);
-            if (passwordConditions.consonantsMustHave) mustHaveSimbolGroups.Add(CharactersType.Consonants);
-            if (passwordConditions.numbersMustHave) mustHaveSimbolGroups.Add(CharactersType.Numbers);
-            if (passwordConditions.simbolsMustHave) mustHaveSimbolGroups.Add(CharactersType.Simbols);
+            //If password must contains one or more concrete type of character, add this type to mustHaveCharactersGroups
+            List<CharactersType> mustHaveCharactersGroups = new List<CharactersType>();
+            if (passwordConditions.vowelsMustHave) mustHaveCharactersGroups.Add(CharactersType.Vowels);
+            if (passwordConditions.consonantsMustHave) mustHaveCharactersGroups.Add(CharactersType.Consonants);
+            if (passwordConditions.numbersMustHave) mustHaveCharactersGroups.Add(CharactersType.Numbers);
+            if (passwordConditions.simbolsMustHave) mustHaveCharactersGroups.Add(CharactersType.Simbols);
            
-
+            //Character Generator initialization
             CharacterGeneratorAbstract characterGenerator;
             if (passwordConditions.isPronounceable)
                 characterGenerator = new CharacterGeneratorPronounceable(passwordConditions, currentCharacterType);
             else
                 characterGenerator = new CharacterGeneratorRandom(passwordConditions);
 
-            char someCharacter;
+            //Get simbol
             for (int i = password.Length; i < passwordConditions.charactersAmount; i++)
             {
-                someCharacter = characterGenerator.GetSimbol();
+                char someCharacter = characterGenerator.GetSimbol();
                 currentCharacterType = characters.GetCharacterType(someCharacter);
-                if ((passwordConditions.isContainsCapsSimbols) && (currentCharacterType == CharactersType.Consonants || currentCharacterType == CharactersType.Vowels))
+
+                //Random CAPS, if CAPS condition is true
+                if (passwordConditions.isContainsCapsSimbols)
                     someCharacter = random.Next(2) == 1 ? Char.ToUpper(someCharacter) : someCharacter;
+
                 password.Append(someCharacter);
-                mustHaveSimbolGroups.Remove(currentCharacterType);
-                Thread.Sleep(2); //random correction time
+                mustHaveCharactersGroups.Remove(currentCharacterType);
+                Thread.Sleep(2); //Random correction time, random.next() works incorrectly without it
             }
 
-            foreach (var characterType in mustHaveSimbolGroups)
+            //if mustHaveCharactersGroups contains simbols, append it to our password
+            foreach (var characterType in mustHaveCharactersGroups)
             {
                 password[random.Next(password.Length)] = characters.GetRandomCharacterByType(characterType);
             }

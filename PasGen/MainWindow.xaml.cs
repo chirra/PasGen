@@ -1,24 +1,13 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Configuration;
+using System.ComponentModel;
 using System.Globalization;
-using System.Linq;
-using System.Resources;
-using System.Text;
 using System.Threading;
 using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Controls;
-using System.Windows.Data;
-using System.Windows.Documents;
-using System.Windows.Input;
 using System.Windows.Media;
-using System.Windows.Media.Imaging;
-using System.Windows.Navigation;
-using System.Windows.Shapes;
-using System.Windows.Threading;
 using LocalizatorHelper;
-using Microsoft.Win32;
 using PasswordGenerator;
 
 namespace PasGen
@@ -33,6 +22,7 @@ namespace PasGen
         private PasswordConditions passwordConditions = MainOptions.LoadPasswordConditionsFromRegistry();
         private Settings settings = MainOptions.LoadSettingsFromRegistry();
         
+
         public MainWindow()
         {
             InitializeComponent();
@@ -161,7 +151,7 @@ namespace PasGen
         }
 
 
-        private void Window_Closing(object sender, System.ComponentModel.CancelEventArgs e)
+        private void Window_Closing(object sender, CancelEventArgs e)
         {
             InterfaceToPasswordConditions();
             MainOptions.SavePasswordConditionsToRegistry(passwordConditions);

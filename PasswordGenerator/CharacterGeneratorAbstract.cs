@@ -1,39 +1,45 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace PasswordGenerator
 {
     abstract class CharacterGeneratorAbstract
     {
 
-        private Random random = new Random();
-        Characters characters = new Characters();
-        protected PasswordConditions passwordConditions;
+        private readonly Random _random = new Random();
+        private readonly Characters _characters = new Characters();
+        protected PasswordConditions PasswordConditions;
 
 
         public CharactersType CurrentCharacterType { get; set; }
     
 
+        /// <summary>
+        /// Contains a vector of probabilities, depends on concrete implementation 
+        /// </summary>
+        /// <returns></returns>
         protected abstract double[] GetProbabilityVector();
     
         
+        /// <summary>
+        /// Return simbol of the password
+        /// </summary>
+        /// <returns></returns>
         public char GetSimbol()
         {
+            //Values init
             double[] probabilityVector = GetProbabilityVector();
-            double randomCube = random.NextDouble();
+            double randomCube = _random.NextDouble(); //throw a cube
             double sumPVectorElement = 0;
             CurrentCharacterType = 0;
             
+
             foreach (double p in probabilityVector)
             {
                 sumPVectorElement += p;
                 if (sumPVectorElement < randomCube)
                     CurrentCharacterType++;
                 else
-                    return characters.GetRandomCharacterByType(CurrentCharacterType);
+                    return _characters.GetRandomCharacterByType(CurrentCharacterType);
             }
 
             return ' ';

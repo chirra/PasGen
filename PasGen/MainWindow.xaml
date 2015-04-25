@@ -13,10 +13,11 @@
             <ColumnDefinition Width="111*"></ColumnDefinition>
             <ColumnDefinition Width="95*"></ColumnDefinition>
         </Grid.ColumnDefinitions>
+        
         <TextBlock HorizontalAlignment="Left" Margin="18,15,0,0" TextWrapping="Wrap" Text="{Binding Source={StaticResource Helper}, Path=[MainWindowRes.Characters]}" VerticalAlignment="Top" Height="16" MaxWidth="100"/>
-        <TextBox x:Name="TextBoxCharacters" HorizontalAlignment="Left" Height="19" Margin="121,12,0,0" TextWrapping="Wrap" Text="8" VerticalAlignment="Top" Width="95"/>
+        <TextBox x:Name="TextBoxCharacters" Grid.Column="0" HorizontalAlignment="Left" Height="19" Margin="121,12,0,0" TextWrapping="Wrap" Text="8" VerticalAlignment="Top" Width="95"/>
 
-        <GroupBox Header="{Binding Source={StaticResource Helper}, Path=[MainWindowRes.Frequency]}" HorizontalAlignment="Left" Height="154" Margin="8,38,0,0" VerticalAlignment="Top" HorizontalContentAlignment="Stretch">
+        <GroupBox Header="{Binding Source={StaticResource Helper}, Path=[MainWindowRes.Frequency]}" Grid.Column="0" HorizontalAlignment="Left" Height="154" Margin="8,38,0,0" VerticalAlignment="Top" HorizontalContentAlignment="Stretch">
             <Grid>
                 <TextBlock HorizontalAlignment="Left" Margin="10,14,0,0" TextWrapping="Wrap" Text="{Binding Source={StaticResource Helper}, Path=[MainWindowRes.Vowels]}" VerticalAlignment="Top"/>
                 <TextBlock HorizontalAlignment="Left" Margin="10,44,0,0" TextWrapping="Wrap" Text="{Binding Source={StaticResource Helper}, Path=[MainWindowRes.Consonants]}" VerticalAlignment="Top"/>
@@ -31,9 +32,7 @@
                 <CheckBox x:Name="CheckBoxNumbersMustHave" Content="1+" HorizontalAlignment="Left" Margin="163,74,-2,0" VerticalAlignment="Top" ToolTip="One or more"/>
                 <Slider x:Name="SliderSimbolsFrequency" HorizontalAlignment="Left" Margin="90,97,0,0" VerticalAlignment="Top" Width="70" SmallChange="1" Value="2" AutoToolTipPlacement="TopLeft" TickPlacement="TopLeft" IsSnapToTickEnabled="True" Maximum="4"/>
                 <CheckBox x:Name="CheckBoxSimbolsMustHave" Content="1+" HorizontalAlignment="Left" Margin="163,104,-2,0" VerticalAlignment="Top" ToolTip="One or more"/>
-
             </Grid>
-
         </GroupBox>
 
 
@@ -52,12 +51,6 @@
         <Button x:Name="ButtonCopyToClipboard08" Content="{Binding Source={StaticResource Helper}, Path=[MainWindowRes.CaptionPasswordButton]}" Grid.Column="1" HorizontalAlignment="Left" Margin="10,187,0,0" VerticalAlignment="Top" Width="173" Click="ButtonCopyToClipboard_Click" Height="20"/>
         <Button x:Name="ButtonCopyToClipboard09" Content="{Binding Source={StaticResource Helper}, Path=[MainWindowRes.CaptionPasswordButton]}" Grid.Column="1" HorizontalAlignment="Left" Margin="10,212,0,0" VerticalAlignment="Top" Width="173" Click="ButtonCopyToClipboard_Click" Height="20"/>
         <Button x:Name="ButtonCopyToClipboard10" Content="{Binding Source={StaticResource Helper}, Path=[MainWindowRes.CaptionPasswordButton]}" Grid.Column="1" HorizontalAlignment="Left" Margin="10,237,0,0" VerticalAlignment="Top" Width="173" Click="ButtonCopyToClipboard_Click" Height="20"/>
-
-
-
-
-
-
     </Grid>
 
 

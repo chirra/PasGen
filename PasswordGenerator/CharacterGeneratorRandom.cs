@@ -1,27 +1,29 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace PasswordGenerator
+﻿namespace PasswordGenerator
 {
     class CharacterGeneratorRandom : CharacterGeneratorAbstract
     {
-
+        /// <summary>
+        /// Return random probability vector
+        /// </summary>
+        /// <returns></returns>
         protected override double[] GetProbabilityVector()
         {
-            double v = (double)passwordConditions.valueVowels;
-            double c = (double)passwordConditions.valueConsonants;
-            double n = (double)passwordConditions.valueNumbers;
-            double s = (double)passwordConditions.valueSimbols;
+            double v = (double)PasswordConditions.valueVowels;
+            double c = (double)PasswordConditions.valueConsonants;
+            double n = (double)PasswordConditions.valueNumbers;
+            double s = (double)PasswordConditions.valueSimbols;
 
             return new[] { v / (v + c + n + s), c / (v + c + n + s), n / (v + c + n + s), s / (v + c + n + s) };
         }
 
+
+        /// <summary>
+        /// Constructor
+        /// </summary>
+        /// <param name="passwordConditions"></param>
         public CharacterGeneratorRandom(PasswordConditions passwordConditions)
         {
-            this.passwordConditions = passwordConditions;
+            this.PasswordConditions = passwordConditions;
         }
     }
 }

@@ -12,6 +12,8 @@ namespace PasswordGenerator
 
 
         Random random = new Random();
+
+
         private char GetRandomVowel()
         {
             return vowels[random.Next(vowels.Length)];
