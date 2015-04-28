@@ -5,8 +5,8 @@ namespace PasswordGenerator
 {
     class Characters
     {
-        private char[] vowels = {'a', 'e', 'i', 'o', 'u', 'y'};
-        private char[] consonants = {'b', 'c', 'd', 'f', 'g', 'h', 'j', 'k', 'l', 'm', 'n', 'p', 'q', 'r', 's', 't', 'v', 'w', 'x', 'z'};
+        private char[] vowels = {'a', 'e', 'o', 'u', 'y'};
+        private char[] consonants = {'b', 'c', 'd', 'f', 'g', 'h', 'j', 'k', 'm', 'n', 'p', 'q', 'r', 's', 't', 'v', 'w', 'x', 'z'};
         private char[] numbers = {'0', '1', '2', '3', '4', '5', '6', '7', '8', '9'};
         private char[] simbols ={'!', '@', '#', '$', '%', '^', '&', '*', '(', ')', '-', '+', '=', '/', '>', '<', '?'};
 
