@@ -7,14 +7,14 @@
     <framework targetVersion="4.5" profile="Full" supportedRuntime="4.0.30319" />
   </compatibleFrameworks>
   <dependency>
-    <dependentAssembly dependencyType="install" codebase="PasGen.exe.manifest" size="7211">
+    <dependentAssembly dependencyType="install" codebase="PasGen.exe.manifest" size="7218">
       <assemblyIdentity name="PasGen.exe" version="1.0.0.1" publicKeyToken="0000000000000000" language="neutral" processorArchitecture="msil" type="win32" />
       <hash>
         <dsig:Transforms>
           <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
         </dsig:Transforms>
         <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
-        <dsig:DigestValue>U5yP+jCXXvpWex1cmP3N1qoaPuNCeauP23MB6OStGBs=</dsig:DigestValue>
+        <dsig:DigestValue>9YnSgun7xlsjp07ajCIvt6PEXrEdWJco6eSnluI1fNQ=</dsig:DigestValue>
       </hash>
     </dependentAssembly>
   </dependency>

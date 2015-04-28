@@ -61,10 +61,12 @@ namespace PasGen
             SliderConsonantsFrequency.Value = passwordConditions.valueConsonants;
             SliderNumbersFrequency.Value = passwordConditions.valueNumbers;
             SliderSimbolsFrequency.Value = passwordConditions.valueSimbols;
+/*
             CheckBoxVowelsMustHave.IsChecked = passwordConditions.vowelsMustHave;
             CheckBoxConsonantsMustHave.IsChecked = passwordConditions.consonantsMustHave;
             CheckBoxNumbersMustHave.IsChecked = passwordConditions.numbersMustHave;
             CheckBoxSimbolsMustHave.IsChecked = passwordConditions.simbolsMustHave;
+*/
             CheckBoxPronounceable.IsChecked = passwordConditions.isPronounceable;
             CheckBoxCaps.IsChecked = passwordConditions.isContainsCapsSimbols;
         }
@@ -76,14 +78,23 @@ namespace PasGen
             try
             {
                 passwordConditions.charactersAmount = Int32.Parse(TextBoxCharacters.Text);
-                passwordConditions.valueVowels = (int) SliderVowelsFrequency.Value;
-                passwordConditions.valueConsonants = (int) SliderConsonantsFrequency.Value;
-                passwordConditions.valueNumbers = (int) SliderNumbersFrequency.Value;
-                passwordConditions.valueSimbols = (int) SliderSimbolsFrequency.Value;
+
+                //if sliders values == 1 => only one simbol, MustHave password conditions is true
+                passwordConditions.valueVowels = (int)SliderVowelsFrequency.Value == 1 ? 0 : (int)SliderVowelsFrequency.Value;
+                passwordConditions.valueConsonants = (int)SliderConsonantsFrequency.Value == 1 ? 0 : (int)SliderConsonantsFrequency.Value;
+                passwordConditions.valueNumbers = (int)SliderNumbersFrequency.Value == 1 ? 0 : (int)SliderNumbersFrequency.Value;
+                passwordConditions.valueSimbols = (int)SliderSimbolsFrequency.Value == 1 ? 0 : (int)SliderSimbolsFrequency.Value;
+/*
                 passwordConditions.vowelsMustHave = (bool) CheckBoxVowelsMustHave.IsChecked;
                 passwordConditions.consonantsMustHave = (bool) CheckBoxConsonantsMustHave.IsChecked;
                 passwordConditions.numbersMustHave = (bool) CheckBoxNumbersMustHave.IsChecked;
                 passwordConditions.simbolsMustHave = (bool) CheckBoxSimbolsMustHave.IsChecked;
+*/
+                passwordConditions.vowelsMustHave = SliderVowelsFrequency.Value > 0;
+                passwordConditions.consonantsMustHave = SliderConsonantsFrequency.Value > 0;
+                passwordConditions.numbersMustHave = SliderNumbersFrequency.Value > 0;
+                passwordConditions.simbolsMustHave = SliderSimbolsFrequency.Value > 0;
+
                 passwordConditions.isPronounceable = (bool) CheckBoxPronounceable.IsChecked;
                 passwordConditions.isContainsCapsSimbols = (bool) CheckBoxCaps.IsChecked;
             }
@@ -158,6 +169,20 @@ namespace PasGen
 
             settings.Locale = CultureInfo.CurrentCulture.TextInfo.CultureName;
             MainOptions.SaveSettingsToRegistry(settings);
+        }
+
+
+        private void CheckBoxPronounceable_Checked(object sender, RoutedEventArgs e)
+        {
+                SliderVowelsFrequency.IsEnabled = false;
+                SliderConsonantsFrequency.IsEnabled = false;
+        }
+
+
+        private void CheckBoxPronounceable_Unchecked(object sender, RoutedEventArgs e)
+        {
+            SliderVowelsFrequency.IsEnabled = true;
+            SliderConsonantsFrequency.IsEnabled = true;
         }
 
 

@@ -1,7 +1,7 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <asmv1:assembly xsi:schemaLocation="urn:schemas-microsoft-com:asm.v1 assembly.adaptive.xsd" manifestVersion="1.0" xmlns:asmv1="urn:schemas-microsoft-com:asm.v1" xmlns="urn:schemas-microsoft-com:asm.v2" xmlns:asmv2="urn:schemas-microsoft-com:asm.v2" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:co.v1="urn:schemas-microsoft-com:clickonce.v1" xmlns:asmv3="urn:schemas-microsoft-com:asm.v3" xmlns:dsig="http://www.w3.org/2000/09/xmldsig#" xmlns:co.v2="urn:schemas-microsoft-com:clickonce.v2">
   <asmv1:assemblyIdentity name="PasGen.exe" version="1.0.0.1" publicKeyToken="0000000000000000" language="neutral" processorArchitecture="msil" type="win32" />
-  <description asmv2:iconFile="Images\asterisk.ico" xmlns="urn:schemas-microsoft-com:asm.v1" />
+  <description asmv2:iconFile="Images\asterisk128.ico" xmlns="urn:schemas-microsoft-com:asm.v1" />
   <application />
   <entryPoint>
     <assemblyIdentity name="PasGen" version="1.0.0.0" language="neutral" processorArchitecture="msil" />
@@ -55,14 +55,14 @@
     </dependentAssembly>
   </dependency>
   <dependency>
-    <dependentAssembly dependencyType="install" allowDelayedBinding="true" codebase="PasGen.exe" size="117760">
+    <dependentAssembly dependencyType="install" allowDelayedBinding="true" codebase="PasGen.exe" size="248320">
       <assemblyIdentity name="PasGen" version="1.0.0.0" language="neutral" processorArchitecture="msil" />
       <hash>
         <dsig:Transforms>
           <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
         </dsig:Transforms>
         <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
-        <dsig:DigestValue>E1lBAKg21tZoSeuv6tc80qLP9SyzDjkoyrGYhFKFy6s=</dsig:DigestValue>
+        <dsig:DigestValue>IYXCFekZPClNcEyjNrsLfCSl43twtMejuJmkrN6CPDg=</dsig:DigestValue>
       </hash>
     </dependentAssembly>
   </dependency>
@@ -74,7 +74,7 @@
           <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
         </dsig:Transforms>
         <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
-        <dsig:DigestValue>aB5Wy3BXTsyHj5+k42T6GDEllMRa8sJu8T9l4CQ38xw=</dsig:DigestValue>
+        <dsig:DigestValue>LMFTKOFaocm+PMymW3F++JWh1teeSfesXOubxBRDf/8=</dsig:DigestValue>
       </hash>
     </dependentAssembly>
   </dependency>
@@ -86,17 +86,17 @@
           <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
         </dsig:Transforms>
         <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
-        <dsig:DigestValue>RC5Qj7H1yynB4ZI5bCT125ccN8tVvBDW6b75uFgAykA=</dsig:DigestValue>
+        <dsig:DigestValue>WzLnwRFl6Ed23E3LHdtrqsII5/IbaaL/v2Z+atnBmjo=</dsig:DigestValue>
       </hash>
     </dependentAssembly>
   </dependency>
-  <file name="Images\asterisk.ico" size="4286">
+  <file name="Images\asterisk128.ico" size="67646">
     <hash>
       <dsig:Transforms>
         <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
       </dsig:Transforms>
       <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
-      <dsig:DigestValue>rq9Yz6+PercFHrikt2s0UsCLq8RN56/PO2s/n2Qe7hU=</dsig:DigestValue>
+      <dsig:DigestValue>7WfqpTy8vpv53LkQ5epJ5HN8AHLSYJGSDPRsRp35hoM=</dsig:DigestValue>
     </hash>
   </file>
   <file name="PasGen.exe.config" size="961">

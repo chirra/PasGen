@@ -55,14 +55,14 @@
     </dependentAssembly>
   </dependency>
   <dependency>
-    <dependentAssembly dependencyType="install" allowDelayedBinding="true" codebase="PasGen.exe" size="251392">
+    <dependentAssembly dependencyType="install" allowDelayedBinding="true" codebase="PasGen.exe" size="250880">
       <assemblyIdentity name="PasGen" version="1.0.0.0" language="neutral" processorArchitecture="msil" />
       <hash>
         <dsig:Transforms>
           <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
         </dsig:Transforms>
         <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
-        <dsig:DigestValue>VmFNDqS4gtjsUb6Jx4BGqrpak1o6yfnnem6vnvpX52M=</dsig:DigestValue>
+        <dsig:DigestValue>vSmsEinU5N3DwtdO7/7qmRKb/A8xYnuVzxUORSJDSyY=</dsig:DigestValue>
       </hash>
     </dependentAssembly>
   </dependency>
@@ -74,7 +74,7 @@
           <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
         </dsig:Transforms>
         <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
-        <dsig:DigestValue>V5KKZ6sLu9yabXicBVTzq8eHptWi6xvmarpHAON1nEY=</dsig:DigestValue>
+        <dsig:DigestValue>gQ+CqCcApuMrDBS4EASgPVrS+/Q4z6V1ghLt6HTsU+U=</dsig:DigestValue>
       </hash>
     </dependentAssembly>
   </dependency>
@@ -99,13 +99,13 @@
       <dsig:DigestValue>7WfqpTy8vpv53LkQ5epJ5HN8AHLSYJGSDPRsRp35hoM=</dsig:DigestValue>
     </hash>
   </file>
-  <file name="PasGen.exe.config" size="943">
+  <file name="PasGen.exe.config" size="961">
     <hash>
       <dsig:Transforms>
         <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
       </dsig:Transforms>
       <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
-      <dsig:DigestValue>lAz5SSwy8JrzP9b+pChgMGdtPJEdT2hCRXg1ZmwRcPQ=</dsig:DigestValue>
+      <dsig:DigestValue>S76jloJsxJ6BS1RwyuwAaI6Q+MU/x1sJ7KnNoir0+lA=</dsig:DigestValue>
     </hash>
   </file>
   <compatibility xmlns="urn:schemas-microsoft-com:compatibility.v1">

@@ -17,7 +17,7 @@
         <TextBlock HorizontalAlignment="Left" Margin="18,15,0,0" TextWrapping="Wrap" Text="{Binding Source={StaticResource Helper}, Path=[MainWindowRes.Characters]}" VerticalAlignment="Top" Height="16" MaxWidth="100"/>
         <TextBox x:Name="TextBoxCharacters" Grid.Column="0" HorizontalAlignment="Left" Height="19" Margin="121,12,0,0" TextWrapping="Wrap" Text="8" VerticalAlignment="Top" Width="95"/>
 
-        <GroupBox Header="{Binding Source={StaticResource Helper}, Path=[MainWindowRes.Frequency]}" Grid.Column="0" HorizontalAlignment="Left" Height="154" Margin="8,38,0,0" VerticalAlignment="Top" HorizontalContentAlignment="Stretch">
+        <GroupBox Header="{Binding Source={StaticResource Helper}, Path=[MainWindowRes.Frequency]}" Grid.Column="0" HorizontalAlignment="Left" Height="154" Margin="8,38,0,0" VerticalAlignment="Top" MinWidth="210" HorizontalContentAlignment="Stretch">
             <Grid>
                 <TextBlock HorizontalAlignment="Left" Margin="10,14,0,0" TextWrapping="Wrap" Text="{Binding Source={StaticResource Helper}, Path=[MainWindowRes.Vowels]}" VerticalAlignment="Top"/>
                 <TextBlock HorizontalAlignment="Left" Margin="10,44,0,0" TextWrapping="Wrap" Text="{Binding Source={StaticResource Helper}, Path=[MainWindowRes.Consonants]}" VerticalAlignment="Top"/>
@@ -25,18 +25,20 @@
                 <TextBlock HorizontalAlignment="Left" Margin="10,104,0,0" TextWrapping="Wrap" Text="{Binding Source={StaticResource Helper}, Path=[MainWindowRes.Simbols]}" VerticalAlignment="Top"/>
 
                 <Slider x:Name="SliderVowelsFrequency" HorizontalAlignment="Left" Margin="90,7,0,0" VerticalAlignment="Top" Width="70" SmallChange="1" Value="2" AutoToolTipPlacement="TopLeft" TickPlacement="TopLeft" IsSnapToTickEnabled="True" Maximum="4"/>
-                <CheckBox x:Name="CheckBoxVowelsMustHave" Content="1+" HorizontalAlignment="Left" Margin="163,14,-2,0" VerticalAlignment="Top" ToolTip="One or more"/>
+                <!--<CheckBox x:Name="CheckBoxVowelsMustHave" Content="1+" HorizontalAlignment="Left" Margin="163,14,-2,0" VerticalAlignment="Top" ToolTip="One or more"/>-->
+                <!--<TextBox HorizontalAlignment="Left" Margin="163,14,-2,0" VerticalAlignment="Top" Text ="Немного"/>-->
                 <Slider x:Name="SliderConsonantsFrequency" HorizontalAlignment="Left" Margin="90,37,0,0" VerticalAlignment="Top" Width="70" SmallChange="1" Value="2" AutoToolTipPlacement="TopLeft" TickPlacement="TopLeft" IsSnapToTickEnabled="True" Maximum="4"/>
-                <CheckBox x:Name="CheckBoxConsonantsMustHave" Content="1+" HorizontalAlignment="Left" Margin="163,44,-2,0" VerticalAlignment="Top" ToolTip="One or more"/>
+                <!--<CheckBox x:Name="CheckBoxConsonantsMustHave" Content="1+" HorizontalAlignment="Left" Margin="163,44,-2,0" VerticalAlignment="Top" ToolTip="One or more"/>-->
                 <Slider x:Name="SliderNumbersFrequency" HorizontalAlignment="Left" Margin="90,67,0,0" VerticalAlignment="Top" Width="70" SmallChange="1" Value="2" AutoToolTipPlacement="TopLeft" TickPlacement="TopLeft" IsSnapToTickEnabled="True" Maximum="4"/>
-                <CheckBox x:Name="CheckBoxNumbersMustHave" Content="1+" HorizontalAlignment="Left" Margin="163,74,-2,0" VerticalAlignment="Top" ToolTip="One or more"/>
+                <!--<CheckBox x:Name="CheckBoxNumbersMustHave" Content="1+" HorizontalAlignment="Left" Margin="163,74,-2,0" VerticalAlignment="Top" ToolTip="One or more"/>-->
                 <Slider x:Name="SliderSimbolsFrequency" HorizontalAlignment="Left" Margin="90,97,0,0" VerticalAlignment="Top" Width="70" SmallChange="1" Value="2" AutoToolTipPlacement="TopLeft" TickPlacement="TopLeft" IsSnapToTickEnabled="True" Maximum="4"/>
-                <CheckBox x:Name="CheckBoxSimbolsMustHave" Content="1+" HorizontalAlignment="Left" Margin="163,104,-2,0" VerticalAlignment="Top" ToolTip="One or more"/>
+                <!--<CheckBox x:Name="CheckBoxSimbolsMustHave" Content="1+" HorizontalAlignment="Left" Margin="163,104,-2,0" VerticalAlignment="Top" ToolTip="One or more"/>-->
+                
             </Grid>
         </GroupBox>
 
 
-        <CheckBox x:Name="CheckBoxPronounceable" Content="{Binding Source={StaticResource Helper}, Path=[MainWindowRes.Pronounceable]}" Grid.Column="0" HorizontalAlignment="Left" Margin="10,206,0,0" VerticalAlignment="Top" HorizontalContentAlignment="Stretch" Height="15" MaxWidth="150"/>
+        <CheckBox x:Name="CheckBoxPronounceable" Content="{Binding Source={StaticResource Helper}, Path=[MainWindowRes.Pronounceable]}" Grid.Column="0" HorizontalAlignment="Left" Margin="10,206,0,0" VerticalAlignment="Top" HorizontalContentAlignment="Stretch" Height="15" MaxWidth="150" Checked="CheckBoxPronounceable_Checked" Unchecked="CheckBoxPronounceable_Unchecked"/>
         <CheckBox x:Name="CheckBoxCaps" Content="{Binding Source={StaticResource Helper}, Path=[MainWindowRes.CAPS]}" Grid.Column="0" HorizontalAlignment="Left" Margin="122,206,0,0" VerticalAlignment="Top" HorizontalContentAlignment="Stretch" Height="15" MaxWidth="100"/>
         <Button x:Name="ButtonSettings" Content="{StaticResource ImageSettings}" Grid.Column="0" HorizontalAlignment="Left" Margin="198,203,0,0" VerticalAlignment="Top" Width="18" Height="18" Click="ButtonSettings_Click"/>
         <Button x:Name="ButtonGenerate" Content="{Binding Source={StaticResource Helper}, Path=[MainWindowRes.CaptionGenerateButton]}" Grid.Column="0" HorizontalAlignment="Left" Margin="8,237,0,0" VerticalAlignment="Top" Width="94" Click="ButtonGenerate_Click" Height="20"/>

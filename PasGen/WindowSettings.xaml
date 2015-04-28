@@ -21,7 +21,7 @@
         <TextBlock HorizontalAlignment="Stretch" Margin="47,7,0,0" TextWrapping="Wrap" Text="{Binding Source={StaticResource Helper}, Path=[MainWindowRes.Caption]}" VerticalAlignment="Top" Grid.ColumnSpan="2" Width="204"/>
         <TextBlock HorizontalAlignment="Stretch" Margin="47,26,0,0" TextWrapping="Wrap" Text="{Binding Source={StaticResource Helper}, Path=[MainWindowRes.Slogan]}" VerticalAlignment="Top" Grid.ColumnSpan="2" Width="204" FontStyle="Italic" FontSize="10"/>
         <TextBlock HorizontalAlignment="Stretch" Margin="10,57,0,0" TextWrapping="Wrap" Text="PasGen v.2.0.  Copyright (C) 2015  Oleg Kashenko" VerticalAlignment="Top" Grid.ColumnSpan="2" Width="228" FontSize="10"/>
-        <!--<TextBlock HorizontalAlignment="Left" Margin="10,74,0,0" TextWrapping="Wrap" Text="This program comes with ABSOLUTELY NO WARRANTY" VerticalAlignment="Top" Grid.ColumnSpan="2" Width="228" FontSize="10"/>-->
+        <TextBlock HorizontalAlignment="Left" Margin="22,74,0,0" TextWrapping="Wrap" Text="http://pasgenpro.sourceforge.net" VerticalAlignment="Top" Grid.ColumnSpan="2" Width="216" FontSize="10"/>
     </Grid>
 
 

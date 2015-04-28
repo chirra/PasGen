@@ -4,16 +4,16 @@
 winexe
 C#
 .cs
-C:\.vstudio\PasGen\PasGen\obj\Debug\
+C:\.vstudio\Pasgen\PasGen\obj\Debug\
 PasGen
 none
 false
 DEBUG;TRACE
-C:\.vstudio\PasGen\PasGen\App.xaml
+C:\.vstudio\Pasgen\PasGen\App.xaml
 3-497813901
 
-13290612898
-17-1284315149
+13-1291735518
+17137484342
 AppResources.xaml;MainWindow.xaml;WindowSettings.xaml;
 
 False
