@@ -1,27 +1,21 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace PasswordGenerator
+﻿namespace PasswordGenerator
 {
     public struct PasswordConditions
     {
-        public int charactersAmount;
+        public int CharactersAmount;
 
-        public int valueVowels;
-        public int valueConsonants;
-        public int valueNumbers;
-        public int valueSimbols;
+        public int ValueVowels;
+        public int ValueConsonants;
+        public int ValueNumbers;
+        public int ValueSimbols;
 
-        public bool vowelsMustHave;
-        public bool consonantsMustHave;
-        public bool numbersMustHave;
-        public bool simbolsMustHave;
+        public bool VowelsMustHave;
+        public bool ConsonantsMustHave;
+        public bool NumbersMustHave;
+        public bool SimbolsMustHave;
 
-        public bool isPronounceable;
-        public bool isContainsCapsSimbols;
+        public bool IsPronounceable;
+        public bool IsContainsCapsSimbols;
         
     }
 }

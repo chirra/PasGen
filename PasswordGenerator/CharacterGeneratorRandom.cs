@@ -8,10 +8,10 @@
         /// <returns></returns>
         protected override double[] GetProbabilityVector()
         {
-            double v = (double)PasswordConditions.valueVowels;
-            double c = (double)PasswordConditions.valueConsonants;
-            double n = (double)PasswordConditions.valueNumbers;
-            double s = (double)PasswordConditions.valueSimbols;
+            double v = (double)PasswordConditions.ValueVowels;
+            double c = (double)PasswordConditions.ValueConsonants;
+            double n = (double)PasswordConditions.ValueNumbers;
+            double s = (double)PasswordConditions.ValueSimbols;
 
             return new[] { v / (v + c + n + s), c / (v + c + n + s), n / (v + c + n + s), s / (v + c + n + s) };
         }

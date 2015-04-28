@@ -10,10 +10,10 @@ namespace PasswordGenerator
         /// <returns></returns>
         protected override double[] GetProbabilityVector()
         {
-            var v = (double)PasswordConditions.valueVowels;
-            var c = (double)PasswordConditions.valueConsonants;
-            var n = (double)PasswordConditions.valueNumbers;
-            var s = (double)PasswordConditions.valueSimbols;
+            var v = (double)PasswordConditions.ValueVowels;
+            var c = (double)PasswordConditions.ValueConsonants;
+            var n = (double)PasswordConditions.ValueNumbers;
+            var s = (double)PasswordConditions.ValueSimbols;
 
 
             double[][] probabilityMatrix =

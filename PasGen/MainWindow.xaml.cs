@@ -49,26 +49,31 @@ namespace PasGen
             allPasswordButtons.Add(ButtonCopyToClipboard08);
             allPasswordButtons.Add(ButtonCopyToClipboard09);
             allPasswordButtons.Add(ButtonCopyToClipboard10);
-
             PasswordConditionsToInterface();
         }
 
 
         private void PasswordConditionsToInterface()
         {
-            TextBoxCharacters.Text = passwordConditions.charactersAmount.ToString();
-            SliderVowelsFrequency.Value = passwordConditions.valueVowels;
-            SliderConsonantsFrequency.Value = passwordConditions.valueConsonants;
-            SliderNumbersFrequency.Value = passwordConditions.valueNumbers;
-            SliderSimbolsFrequency.Value = passwordConditions.valueSimbols;
+            TextBoxCharacters.Text = passwordConditions.CharactersAmount.ToString();
+            SliderVowelsFrequency.Value = passwordConditions.ValueVowels;
+            SliderConsonantsFrequency.Value = passwordConditions.ValueConsonants;
+            SliderNumbersFrequency.Value = passwordConditions.ValueNumbers;
+            SliderSimbolsFrequency.Value = passwordConditions.ValueSimbols;
 /*
             CheckBoxVowelsMustHave.IsChecked = passwordConditions.vowelsMustHave;
             CheckBoxConsonantsMustHave.IsChecked = passwordConditions.consonantsMustHave;
             CheckBoxNumbersMustHave.IsChecked = passwordConditions.numbersMustHave;
             CheckBoxSimbolsMustHave.IsChecked = passwordConditions.simbolsMustHave;
 */
-            CheckBoxPronounceable.IsChecked = passwordConditions.isPronounceable;
-            CheckBoxCaps.IsChecked = passwordConditions.isContainsCapsSimbols;
+
+            SliderVowelsFrequency.Value = passwordConditions.ValueVowels > 1 ? passwordConditions.ValueVowels : Convert.ToInt32(passwordConditions.VowelsMustHave);
+            SliderConsonantsFrequency.Value = passwordConditions.ValueConsonants > 1 ? passwordConditions.ValueConsonants : Convert.ToInt32(passwordConditions.ConsonantsMustHave);
+            SliderNumbersFrequency.Value = passwordConditions.ValueNumbers > 1 ? passwordConditions.ValueNumbers : Convert.ToInt32(passwordConditions.NumbersMustHave);
+            SliderSimbolsFrequency.Value = passwordConditions.ValueSimbols > 1 ? passwordConditions.ValueSimbols : Convert.ToInt32(passwordConditions.SimbolsMustHave);
+            
+            CheckBoxPronounceable.IsChecked = passwordConditions.IsPronounceable;
+            CheckBoxCaps.IsChecked = passwordConditions.IsContainsCapsSimbols;
         }
 
 
@@ -77,26 +82,26 @@ namespace PasGen
 
             try
             {
-                passwordConditions.charactersAmount = Int32.Parse(TextBoxCharacters.Text);
+                passwordConditions.CharactersAmount = Int32.Parse(TextBoxCharacters.Text);
 
-                //if sliders values == 1 => only one simbol, MustHave password conditions is true
-                passwordConditions.valueVowels = (int)SliderVowelsFrequency.Value == 1 ? 0 : (int)SliderVowelsFrequency.Value;
-                passwordConditions.valueConsonants = (int)SliderConsonantsFrequency.Value == 1 ? 0 : (int)SliderConsonantsFrequency.Value;
-                passwordConditions.valueNumbers = (int)SliderNumbersFrequency.Value == 1 ? 0 : (int)SliderNumbersFrequency.Value;
-                passwordConditions.valueSimbols = (int)SliderSimbolsFrequency.Value == 1 ? 0 : (int)SliderSimbolsFrequency.Value;
+                //if sliders values == 1, then only one appropriate simbol contains in password, i.e. MustHave password conditions is true
+                passwordConditions.ValueVowels = (int)SliderVowelsFrequency.Value == 1 ? 0 : (int)SliderVowelsFrequency.Value;
+                passwordConditions.ValueConsonants = (int)SliderConsonantsFrequency.Value == 1 ? 0 : (int)SliderConsonantsFrequency.Value;
+                passwordConditions.ValueNumbers = (int)SliderNumbersFrequency.Value == 1 ? 0 : (int)SliderNumbersFrequency.Value;
+                passwordConditions.ValueSimbols = (int)SliderSimbolsFrequency.Value == 1 ? 0 : (int)SliderSimbolsFrequency.Value;
 /*
                 passwordConditions.vowelsMustHave = (bool) CheckBoxVowelsMustHave.IsChecked;
                 passwordConditions.consonantsMustHave = (bool) CheckBoxConsonantsMustHave.IsChecked;
                 passwordConditions.numbersMustHave = (bool) CheckBoxNumbersMustHave.IsChecked;
                 passwordConditions.simbolsMustHave = (bool) CheckBoxSimbolsMustHave.IsChecked;
 */
-                passwordConditions.vowelsMustHave = SliderVowelsFrequency.Value > 0;
-                passwordConditions.consonantsMustHave = SliderConsonantsFrequency.Value > 0;
-                passwordConditions.numbersMustHave = SliderNumbersFrequency.Value > 0;
-                passwordConditions.simbolsMustHave = SliderSimbolsFrequency.Value > 0;
+                passwordConditions.VowelsMustHave = SliderVowelsFrequency.Value > 0;
+                passwordConditions.ConsonantsMustHave = SliderConsonantsFrequency.Value > 0;
+                passwordConditions.NumbersMustHave = SliderNumbersFrequency.Value > 0;
+                passwordConditions.SimbolsMustHave = SliderSimbolsFrequency.Value > 0;
 
-                passwordConditions.isPronounceable = (bool) CheckBoxPronounceable.IsChecked;
-                passwordConditions.isContainsCapsSimbols = (bool) CheckBoxCaps.IsChecked;
+                passwordConditions.IsPronounceable = (bool) CheckBoxPronounceable.IsChecked;
+                passwordConditions.IsContainsCapsSimbols = (bool) CheckBoxCaps.IsChecked;
             }
             catch (Exception e)
             {
