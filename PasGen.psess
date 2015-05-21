@@ -36,7 +36,7 @@
   </PostinstrumentEvent>
   <Binaries>
     <ProjBinary>
-      <Path>PasGen\obj\Debug\PasGen.exe</Path>
+      <Path>PasGen\obj\Release\PasGen.exe</Path>
       <ArgumentTimestamp>01/01/0001 00:00:00</ArgumentTimestamp>
       <Instrument>true</Instrument>
       <Sample>true</Sample>
@@ -48,8 +48,8 @@
       <LaunchProject>true</LaunchProject>
       <OverrideProjectSettings>false</OverrideProjectSettings>
       <LaunchMethod>Executable</LaunchMethod>
-      <ExecutablePath>PasGen\bin\Debug\PasGen.exe</ExecutablePath>
-      <StartupDirectory>PasGen\bin\Debug\</StartupDirectory>
+      <ExecutablePath>PasGen\bin\Release\PasGen.exe</ExecutablePath>
+      <StartupDirectory>PasGen\bin\Release\</StartupDirectory>
       <Arguments>
       </Arguments>
       <NetAppHost>IIS</NetAppHost>

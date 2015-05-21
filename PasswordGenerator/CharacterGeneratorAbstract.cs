@@ -1,10 +1,12 @@
 ﻿using System;
+using System.Security.Cryptography;
 
 namespace PasswordGenerator
 {
     abstract class CharacterGeneratorAbstract
     {
 
+        //private readonly RNGCryptoServiceProvider _random = new RNGCryptoServiceProvider();
         private readonly Random _random = new Random();
         private readonly Characters _characters = new Characters();
         protected PasswordConditions PasswordConditions;

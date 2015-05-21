@@ -138,7 +138,10 @@ namespace PasGen
 
         private void CommandCopyToClipboard(string text)
         {
-            Clipboard.SetData(DataFormats.Text, text);
+            Thread thread = new Thread(() => Clipboard.SetText(text));
+            thread.SetApartmentState(ApartmentState.STA); //Set the thread to STA
+            thread.Start();
+            thread.Join();
         }
 
 
